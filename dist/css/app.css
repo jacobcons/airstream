@@ -62,17 +62,20 @@ main {
   margin: 0 auto;
 }
 /* General font styles */
-svg * {
-  fill: #7e8187;
-}
-svg.mail {
+.mail {
   width: 4.375em;
 }
-svg.list {
+.list {
   width: 3.75em;
 }
-svg.faq {
+.list * {
+  fill: #929497;
+}
+.faq {
   width: 4.375em;
+}
+.faq * {
+  fill: #929497;
 }
 h1,
 h2,
@@ -176,41 +179,22 @@ header nav ul li a:hover {
   display: inline-block;
   margin: 11px 0;
 }
-.logo a {
+.logo h1 {
+  font-family: hamburger;
+  font-size: 4.375em;
+  margin: 0;
+  display: inline-block;
   color: #64b4b6;
   -webkit-transition: color 0.2s ease-in-out;
   -moz-transition: color 0.2s ease-in-out;
   -ms-transition: color 0.2s ease-in-out;
   -o-transition: color 0.2s ease-in-out;
 }
-.logo h1 {
-  font-family: hamburger;
-  font-size: 4.375em;
-  margin: 0;
-  display: inline-block;
-}
-.logo svg {
-  width: 3.125em;
-  margin-bottom: 0.2em;
-}
-.logo svg path {
-  fill: #64b4b6;
-  -webkit-transition: fill 0.2s ease-in-out;
-  -moz-transition: fill 0.2s ease-in-out;
-  -ms-transition: fill 0.2s ease-in-out;
-  -o-transition: fill 0.2s ease-in-out;
-}
-.logo:hover a {
+.logo:hover h1 {
   color: #4a9b9d;
 }
-.logo:hover svg path {
+.logo:hover .wing path {
   fill: #4a9b9d;
-}
-.logo #left-wing {
-  margin-right: 0.1em;
-}
-.logo #right-wing {
-  margin-left: 0.1em;
 }
 .wing {
   width: 3.125em;
@@ -218,6 +202,10 @@ header nav ul li a:hover {
 }
 .wing path {
   fill: #64b4b6;
+  -webkit-transition: fill 0.2s ease-in-out;
+  -moz-transition: fill 0.2s ease-in-out;
+  -ms-transition: fill 0.2s ease-in-out;
+  -o-transition: fill 0.2s ease-in-out;
 }
 /* Column system styles */
 .l-grid {
@@ -268,6 +256,10 @@ header nav ul li a:hover {
 .l-col-12-12 {
   width: 100%;
 }
+.supplier-image img {
+  width: 100%;
+  max-width: 250px;
+}
 /* Module styles */
 .white-box {
   background-color: #fff;
@@ -284,7 +276,7 @@ header nav ul li a:hover {
 .white-box-margin {
   margin-bottom: 20px;
 }
-.pricing-icons .restrict-width h2 {
+.pricing-icons .restrict-width {
   width: 80%;
   position: relative;
   left: 50%;
@@ -297,17 +289,21 @@ header nav ul li a:hover {
 .pricing-icons p.desc {
   margin-bottom: 0px;
 }
-.pricing-icons svg {
+.pricing-icons .package-icon {
   width: 6.25em;
+  height: auto;
 }
-.pricing-icons svg.champagne {
+.pricing-icons .package-icon * {
+  fill: #64b4b6;
+}
+.pricing-icons .package-icon-champagne {
   padding-top: 0.8125em;
   width: 5em;
 }
-.pricing-icons svg.guest-book {
+.pricing-icons .package-icon-guest-book {
   padding-top: 1.75em;
 }
-.pricing-icons svg.tape {
+.pricing-icons .package-icon-tape-measure {
   padding-top: 0.9375em;
   width: 7.8125em;
 }
@@ -323,6 +319,9 @@ header nav ul li a:hover {
 .reviews .review:last-of-type {
   margin-bottom: 0;
 }
+.center-icon {
+  text-align: center;
+}
 #instagram {
   height: 775px;
   overflow: auto;
@@ -333,31 +332,32 @@ header nav ul li a:hover {
 #instagram .instagram-media:last-of-type {
   margin-bottom: 0 !important;
 }
-#social-media-icons svg {
+.social-media-icons .social-media-icon {
   width: 3em;
   margin-left: .4em;
 }
-#social-media-icons svg path {
+.social-media-icons .social-media-icon * {
+  fill: #64b4b6;
   -webkit-transition: fill 0.2s ease-in-out;
   -moz-transition: fill 0.2s ease-in-out;
   -ms-transition: fill 0.2s ease-in-out;
   -o-transition: fill 0.2s ease-in-out;
 }
-#social-media-icons svg:hover path {
+.social-media-icons .social-media-icon:hover * {
   fill: #4a9b9d;
 }
-#contactBadges {
-  font-size: 1.2rem;
+.contactBadges {
+  font-size: 1.7rem;
 }
-img#hitchedBadge {
+.hitchedBadge {
   width: 4.75em;
 }
-img#mrAndMrsUniqueBadge {
+.mrAndMrsUniqueBadge {
   width: 5.625em;
   position: relative;
   top: 4px;
 }
-img#belleBadge {
+.belleBadge {
   width: 4.8em;
 }
 /* Helper styles */
@@ -365,9 +365,6 @@ img#belleBadge {
   content: "";
   display: table;
   clear: both;
-}
-.text-center {
-  text-align: center;
 }
 .vertical-spacing-sml {
   margin-bottom: 20px;
@@ -399,23 +396,14 @@ img#belleBadge {
   .full-width {
     width: 80%;
   }
-  #pricing-icons [class*='col-'] {
+  .pricing-icons [class*='col-'] {
     margin-bottom: 30px;
   }
-  #pricing-icons [class*='col-']:last-of-type {
+  .pricing-icons [class*='col-']:last-of-type {
     margin-bottom: 0;
   }
-  #pricing-icons .padding-top svg {
+  .pricing-icons .vertical-readjust {
     padding-top: 0;
-  }
-  img#hitchedBadge {
-    width: 60.7px;
-  }
-  img#mrAndMrsUniqueBadge {
-    width: 72px;
-  }
-  img#belleBadge {
-    width: 61.4px;
   }
 }
 @media screen and (max-width: 600px) {
@@ -441,7 +429,7 @@ img#belleBadge {
   :root {
     font-size: 65%;
   }
-  #social-media-icons {
+  .social-media-icons {
     font-size: 1.4rem;
   }
 }
