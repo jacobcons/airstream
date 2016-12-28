@@ -18,7 +18,7 @@
 
 		<section class="l-grid">
 			<div class="white-box">
-				<section class="pricing-icons text-center">
+				<section class="pricing-icons center-icon">
 					<div class="l-row clearfix">
 							<div class="l-col-4-12">
 								<img src="imgs/icons/bronze-package.svg" class="package-icon svg">
