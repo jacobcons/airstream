@@ -122,7 +122,7 @@
 					<div class="l-col-4-12 l-col-pad supplier-image">
 						<a href="http://www.velvetstorm.co.uk/" target="_blank"><img src="imgs/wedding_suppliers/velvet_storm.jpg" alt="Velvet Storm Photography" /></a>
 					</div>
-					
+
 					<div class="l-col-8-12">
 						<p><a href="http://www.velvetstorm.co.uk/" target="_blank">
 						<h2>Velvet Storm Photography</h2></a></p>
@@ -135,7 +135,7 @@
 		</div>
 	</div>
 </main>
-<script src="js/vendor.min.js"></script>
-<script src="js/app.min.js"></script>
+
+<?php include_once("footer.php"); ?>
 </body>
 </html>

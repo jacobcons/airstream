@@ -25,7 +25,7 @@
 
 								<h2>Bronze</h2>
 								<p class="desc">3 Hours Photo Booth</p>
-								<p><a href="mailto:info@airstreamstudio.co.uk">Contact us for a quote</a></p>
+								<p><a href="contact.php">Contact us</a></p>
 							</div>
 
 							<div class="l-col-4-12">
@@ -33,7 +33,7 @@
 
 								<h2>Silver</h2>
 								<p class="desc">4 Hours Photo Booth</p>
-								<p><a href="mailto:info@airstreamstudio.co.uk">Contact us for a quote</a></p>
+								<p><a href="contact.php">Contact us</a></p>
 							</div>
 
 							<div class="l-col-4-12">
@@ -41,7 +41,7 @@
 
 								<h2>Gold</h2>
 								<p class="desc">5 Hours Photo Booth</p>
-								<p><a href="mailto:info@airstreamstudio.co.uk">Contact us for a quote</a></p>
+								<p><a href="contact.php">Contact us</a></p>
 							</div>
 						</div>
 
@@ -50,7 +50,7 @@
 								<img src="imgs/icons/champagne.svg" class="package-icon-champagne package-icon vertical-readjust svg">
 
 								<h2 class="restrict-width">Private Champagne Shoot</h2>
-								<p><a href="mailto:info@airstreamstudio.co.uk">Contact us for a quote</a></p>
+								<p><a href="contact.php">Contact us</a></p>
 							</div>
 
 							<div class="l-col-4-12">
@@ -66,11 +66,12 @@
 								<img src="imgs/icons/tape-measure.svg" class="package-icon-tape-measure package-icon vertical-readjust svg">
 
 								<h2>Bespoke Packages</h2>
-								<p><a href="mailto:info@airstreamstudio.co.uk">Contact us for a quote</a></p>
+								<p><a href="contact.php">Contact us</a></p>
 							</div>
 						</div>
 				    </section>
 
+					<?php include_once("contact-form.php"); ?>
 
 					<div class="l-row">
 						<h2>Included within the price</h2>
@@ -89,18 +90,11 @@
 						Booking deposits are only refundable with at least 30 days notice.
 						We accept BAC's, PayPal and credit cards via PayPal. </p>
 					</div>
-
-					<div class="l-row">
-						<h2>Christmas/Winter Party Special Discount </h2>
-						<p><img src="imgs/photobooth/DSC_0360.jpg" alt="wedding guest books" class="full-width"/></p>
-					</div>
-
-					<p>We still have some availablitily for Christmas parties in 2016. If you are in the Brighton or surrounding area get in touch for a discounted price. We have a beautiful new winter wonderland photo set that will make your Christmas party, or work party a memorable event</p>
 			</div>
 		</section>
 	</div>
 </main>
-<script src="js/vendor.min.js"></script>
-<script src="js/app.min.js"></script>
+
+<?php include_once("footer.php"); ?>
 </body>
 </html>

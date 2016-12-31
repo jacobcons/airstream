@@ -21,7 +21,6 @@
                 <h2>Contact Us</h2>
 				<p>For bookings and information please contact us.</p>
 				<p> <a href="mailto:info@airstreamstudio.co.uk?Subject=Enquiry" class="mail-to" target="_top">info@airstreamstudio.co.uk</a></p>
-				<p> We are based in Brighton. If you would like to view our Airstream before booking please contact us. </p>
 
 				<section class="social-media-icons">
 					<a href="https://www.facebook.com/airstreamstudios/" target="_blank">
@@ -41,7 +40,11 @@
                     </a>
 				</section>
 
-                <section class="contactBadges">
+
+
+				<?php include_once("contact-form.php"); ?>
+
+				<section class="contactBadges">
     				<a href="http://www.hitched.co.uk/wedding-photo-booths/east-sussex/airstream-studio_33439.htm#pos=5&type=2" target="_blank">
     					<img class="hitchedBadge" src="imgs/contact/hitched-listed-supplier-UK-150.png" alt="Hitched wedding supplier" />
     				</a>
@@ -54,15 +57,12 @@
 						<img class="belleBadge" src="http://www.bellesevents.co.uk/wp-content/uploads/2013/04/Recommended-Supplier1.png" alt="Belles Events" />
 					</a>
                 </section>
-			</div>
 
-			<div class="center-icon">
-				<img src="imgs/contact/vintage_airstream.jpg" class="full-width" alt="Retro picture of bcycle towing and Airstream"/>
 			</div>
 		</div>
 	</div>
 </main>
-<script src="js/vendor.min.js"></script>
-<script src="js/app.min.js"></script>
+
+<?php include_once("footer.php"); ?>
 </body>
 </html>

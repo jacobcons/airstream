@@ -33,4 +33,9 @@ $(function () {
 
 	});
 
+	$("input[name='date']").datepicker({ minDate: 0});
+
+	$(".submit-container").click(function() {
+		$(".contact-form").submit();
+	});
 });

@@ -210,7 +210,7 @@
 		</section>
 	</div>
 </main>
-<script src="js/vendor.min.js"></script>
-<script src="js/app.min.js"></script>
+
+<?php include_once("footer.php"); ?>
 </body>
 </html>

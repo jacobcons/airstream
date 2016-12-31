@@ -21,6 +21,7 @@
     "path": "^0.12.7"
   },
   "dependencies": {
+    "gulp-concat-css": "^2.3.0",
     "normalize.css": "^4.2.0"
   }
 }

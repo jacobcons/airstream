@@ -130,7 +130,7 @@
 					  <p>We aim to create a unique and memorable experience for you and your guests. The vintage photography studio is set inside a rare 1949 Airstream trailer and inside it's highly polished exterior is a beautiful interior that hosts and high end photo booth with professional studio lighting and amazing, unique props.</p>
 				</div>
 
-				<div class="white-box">
+				<div class="white-box white-box-margin">
 					<h2>A Unique Photo Booth Experience</h2>
 					<p>Our retro photo booth is fully automated with a touch screen system, professional camera and lighting, wide angle lens and a high spec photo printer. Guests can take their photos and then retire to the seating booth where they can collect their prints, add them to a guest book and share on social media. </p>
 					<p> Airstream Studio is a unique experience that creates beautiful photographs and a unique social experience for your vintage wedding, party or event. </p>
@@ -140,6 +140,10 @@
 					</p>
 					<p>The vintage airstream photo booth is based in Brighton, and is available to hire in Worthing, Haywards Heath, Lewes and Eastbourne as well as most locations in East Sussex, West Sussex, Hampshire, Surrey, Kent and London. This beautifully polished vintage airstream photobooth makes a great addition to a vintage wedding or retro themed wedding.</p>
 					<p>Airstream Studio – The most evocative vintage photography booth for your vintage wedding, vintage event caravan delivered to you in Sussex, Kent, Surrey, UK</p>
+				</div>
+
+				<div class="white-box">
+					<?php include_once("contact-form.php"); ?>
 				</div>
 			</div>
 
@@ -152,7 +156,6 @@
 	</div>
 </main>
 
-<script src="js/vendor.min.js"></script>
-<script src="js/app.min.js"></script>
+<?php include_once("footer.php"); ?>
 </body>
 </html>
