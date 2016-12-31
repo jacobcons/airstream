@@ -78,8 +78,7 @@
 		// Create the autocomplete object, restricting the search to geographical
 		// location types.
 		autocomplete = new google.maps.places.Autocomplete(
-		/** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-		{types: ['geocode']});
+		/** @type {!HTMLInputElement} */(document.getElementById('autocomplete')));
 	}
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQFwzDyaunRwLLXw5HmGbtzU7kcXCBCwc&libraries=places&callback=initAutocomplete" async defer></script>
