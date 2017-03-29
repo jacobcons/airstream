@@ -1,0 +1,69 @@
+/* Viewport width equals width of main container*/
+@media screen and (max-width: @mainTagWidth) {
+	:root {
+		font-size: 80%;
+	}
+	main {
+		width: 100%;
+		margin-left: 0;
+		left: 0;
+	}
+	[class*='col-'] {
+		width: 100% !important;
+		padding-right: 0;
+	}
+	.white-box {
+		margin-bottom: 20px;
+	}
+	.pricing-icons {
+		[class*='col-'] {
+			margin-bottom: @colVerticalSpacing;
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+
+		.vertical-readjust {
+			padding-top: 0;
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	:root {
+		font-size: 75%;
+	}
+	.primary-nav ul li {
+		float: none;
+		margin-right: 0;
+	}
+}
+
+@media screen and (max-width: 510px) {
+	.social-media-icons {
+		font-size: 1.4rem;
+	}
+	.logo {
+		font-size: .8rem;
+	}
+}
+
+@media screen and (max-width: 380px) {
+	.carousel-indicators li {
+		width: 8px;
+		height: 8px;
+	}
+	.logo {
+		font-size: .6rem;
+	}
+}
+
+/* ipad */
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+	  :root {
+		  font-size: 90%;
+	  }
+}

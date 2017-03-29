@@ -13,53 +13,51 @@ var rename = require('gulp-rename');
 
 // Lint Task
 gulp.task('lint', function() {
-    return gulp.src('dev/js/*.js')
+    return gulp.src('scripts/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
 
 // Translate less to css and minify the result
 gulp.task('app-styles', function () {
-  return gulp.src('dev/styles/app/app.less')
+  return gulp.src('styles/app/app.less')
     .pipe(less())
-    .pipe(gulp.dest('dev/styles/app'))
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(rename('app.min.css'))
-    .pipe(gulp.dest('dist/css'));
+    .pipe(gulp.dest('static/css'));
 });
 
 // Concate and minify vendor style sheets
 gulp.task('vendor-styles', function () {
-  return gulp.src('dev/styles/vendor/*.css')
+  return gulp.src('styles/vendor/*.css')
     .pipe(concatCSS('vendor.min.css'))
     .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(gulp.dest('dist/css'));
+    .pipe(gulp.dest('static/css'));
 });
 
 // Concatenate & Minify JS app scripts
 gulp.task('app-scripts', function() {
-    return gulp.src(['dev/js/app/*.js', '!dev/js/app/app.js'])
+    return gulp.src(['scripts/app/*.js'])
         .pipe(concat('app.js'))
-        .pipe(gulp.dest('dev/js/app'))
         .pipe(rename('app.min.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest('static/js'));
 });
 
 // Concatenate & minify JS vendor scripts
 gulp.task('vendor-scripts', function() {
-    return gulp.src(['dev/js/vendor/jquery.js', 'dev/js/vendor/*.js', '!dev/js/vendor/vendor.js'])
+    return gulp.src(['scripts/vendor/jquery.js', 'scripts/vendor/*.js', '!scripts/vendor/vendor.js'])
         .pipe(concat('vendor.js'))
-        .pipe(gulp.dest('dev/js/vendor'))
+        .pipe(gulp.dest('scripts/vendor'))
         .pipe(rename('vendor.min.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest('static/js'));
 });
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('dev/js/app/*.js', ['lint', 'app-scripts']);
-    gulp.watch('dev/styles/app/*.less', ['app-styles']);
+    gulp.watch('scripts/app/*.js', ['lint', 'app-scripts']);
+    gulp.watch('styles/app/*.less', ['app-styles']);
 });
 
 // Gulp Tasks
