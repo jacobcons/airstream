@@ -6,7 +6,7 @@
 	<?php include_once("head.php"); ?>
 
 	<title>Airstream Studio - Vintage Wedding Photo Booth Hire Prices in Sussex</title>
-    <meta name="KEYWORDS" content="vintage wedding photo booth hire prices, photo booth hire sussex, vintage wedding sussex" />
+    <meta name="KEYWORDS" content="vintage wedding photo booth hire prices, photo booth hire sussex, photo booth prices, phototbooth costs, retro photo booth hire" />
 	<meta name="DESCRIPTION" content="Airstream Studio - Vintage Wedding Photo Booth Hire Prices in Sussex" />
 </head>
 <body>
@@ -79,10 +79,10 @@
 
 
 
-					<div class="l-col-7-12"> 
-                      <h2>A Stuning Vintage Vehicle for Your Wedding Photos</h2>
-                         <p>Would you like to have our shiney airstream at you wedding for the whole day? For a small additional charge we can set up before your quests arrive and the vintage airstream can be used as a backdrop for you wedding photographs. The airstream will be locked outside of photo booth hours but may be opened for the bride and groom if they wish to use the inside for photos or have a brief pause to relax and refresh.</p>
-                         <h2>Included within the price</h2>
+					<div class="l-col-7-12">
+					  <h2>A Classic Vehicle for Your Wedding Photos</h2>
+					  <p>Would you like to have our classic airstream at you wedding for the whole day? For a small additional charge we can set up before your quests arrive and the vintage airstream can be used as a backdrop for you wedding photographs. The airstream will be locked outside of photo booth hours but may be opened for the bride and groom if they wish to use the inside for photos or have a brief pause to relax and refresh.</p>
+					  <h2>Included within the price</h2>
 						<ul>
 							<li>Travel, set up and pack away</li>
                             <li>Vintage and unique photo booth props</li>

@@ -59,6 +59,8 @@
 	<textarea name="message" rows="7" cols="30"></textarea>
 	<?php echo "<p class='small-print small-print-alert'>$errMessage</p>"; ?>
 
+	<div class="g-recaptcha" data-sitekey="6Lcqax0UAAAAAFHBHHX3pzND-dPRvR5xSXAsmAHK"></div>
+
 	<div class="submit-container">
 		<input type="submit">
 			<img src="imgs/icons/paper-plane.svg" class="submit-btn svg">

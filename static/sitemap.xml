@@ -15,11 +15,19 @@
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://www.airstreamstudio.uk/airstream_photobooth.php</loc>
+  <loc>http://www.airstreamstudio.uk/props_and_features.php</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
   <loc>http://www.airstreamstudio.uk/guestbook.php</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.airstreamstudio.uk/vintage_airstream_hire.php</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.airstreamstudio.uk/airstream_photobooth.php</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
@@ -39,7 +47,19 @@
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://www.airstreamstudio.uk/coming-soon.php</loc>
+  <loc>http://www.airstreamstudio.uk/christmas_photobooth.php</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.airstreamstudio.uk/halloween_photobooth.php</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.airstreamstudio.uk/school_prom_photobooth.php</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.airstreamstudio.uk/photobooth_themes.php</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
@@ -60,6 +80,10 @@
 </url>
 <url>
   <loc>http://www.airstreamstudio.uk/weddingsuppliers.php</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.airstreamstudio.uk/vintage_wedding_suppliers.php</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>

@@ -24,10 +24,10 @@
 
 
               
-			  <div class="l-col-7-12 l-col-pad">	
+			  <div class="l-col-7-12 l-col-pad l-image-container">	
                 <img src="imgs/general/spooky_photobooth.jpg" alt="spooky photo booth" class="full-width"/> 
-           		<img src="imgs/general/day_of_the_dead_airstream.jpg" alt="day of the dead photo booth" vspace="10" class="full-width"/>
-                <img src="imgs/general/halloween_photobooth.jpg" alt="halloween photo booth" vspace="10" class="full-width"/>						
+           		<img src="imgs/general/day_of_the_dead_airstream.jpg" alt="day of the dead photo booth" class="full-width"/>
+                <img src="imgs/general/halloween_photobooth.jpg" alt="halloween photo booth" class="full-width"/>						
             </div>
             
 			<div class="l-col-5-12">

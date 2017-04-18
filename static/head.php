@@ -5,3 +5,5 @@
 <link rel="stylesheet" href="css/vendor.min.css">
 
 <meta name="viewport" content="width=device-width">
+
+<script src='https://www.google.com/recaptcha/api.js'></script>

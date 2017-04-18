@@ -19,12 +19,12 @@
 
 <section class="l-grid clearfix">
 			<div class="l-col-6-12 l-col-pad">
-				<div class="white-box white-box-margin clearfix">
+				<div class="white-box white-box-margin clearfix l-image-container">
 				  <h2>Christmas Photo Booth</h2>
 			  	  <p>We have a new winter wonderland themed photo booth set that is perfect for Christmas parties, winter weddings and Santa's grotto. If you are having a winter wedding it will make your photo booth pictures look amemorable.</p>
-                  <img src="imgs/general/winterwonder.jpg" alt="winter wonderland photo" vspace="10" class="full-width"/>
-                  <img src="imgs/general/christmas_airstream.jpg" alt="airstream santa" vspace="10" class="full-width"/>
-				  <img src="imgs/general/santa_airstream.jpg" alt="Father Christmas in an airstream" vspace="10" class="full-width"/>
+                  <img src="imgs/general/winterwonder.jpg" alt="winter wonderland photo" class="full-width"/>
+                  <img src="imgs/general/christmas_airstream.jpg" alt="airstream santa" class="full-width"/>
+				  <img src="imgs/general/santa_airstream.jpg" alt="Father Christmas in an airstream" class="full-width"/>
        			</div>
                 
                 <div class="white-box">
@@ -36,7 +36,7 @@
                 
                 
                 <div class="l-col-6-12">
-				<div class="white-box white-box-margin">
+				<div class="white-box white-box-margin l-image-container">
 				  <h2>Santa's Grotto</h2>
 				  <p>For Christmas in 2016, we hosted the Christmas grotto for <a href="https://wigwamtoys.wordpress.com/" target="_blank">Wigwam Toys</a> in the airstream. The new winter wonderland set was made complete with the addition of the real Father Christmas!</p>
 				  <p>We are also honoured by a visit from Brighton celebrity, <a href="https://www.facebook.com/FivewaysWilf/" target="_blank">Fiveways Wilf!</a></p>
@@ -46,8 +46,8 @@
 					<p>&nbsp;</p>
                     <h2>Book Your Xmas Party</h2>
 				    <p>If you would a retro styled Christmas grotto for your party or event, book Aristream Studio.</p>
-					<img src="imgs/general/christmas_grotto1.jpg" alt="winter wonderland Christmas Grotto" vspace="10" class="full-width"/>
-                    <img src="imgs/general/christmas_grotto2.jpg" alt="Santa in an Airstream" vspace="10" class="full-width"/>
+					<img src="imgs/general/christmas_grotto1.jpg" alt="winter wonderland Christmas Grotto" class="full-width"/>
+                    <img src="imgs/general/christmas_grotto2.jpg" alt="Santa in an Airstream" class="full-width"/>
 				</div>
                 </div>
 	 </div>

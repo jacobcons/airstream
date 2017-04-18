@@ -37,76 +37,86 @@
 				<li data-target="#carousel" data-slide-to="14"></li>
 				<li data-target="#carousel" data-slide-to="15"></li>
 				<li data-target="#carousel" data-slide-to="16"></li>
+				<li data-target="#carousel" data-slide-to="17"></li>
+				<li data-target="#carousel" data-slide-to="18"></li>
 			</ol>
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-				  <img src="imgs/Home/slider/1airstream_photobooth.jpg" alt="airstream studio photobooth">
+				  <img src="imgs/Home/slider/vintage_photobooth_sussex.jpg" alt="vintage photo booth hire sussex">
 				</div>
 
 				<div class="item">
-				  <img src="imgs/Home/slider/2wedding_phootbooth.jpg" alt="wedding photobooth">
+				  <img src="imgs/Home/slider/vintage_photobooth_sussex1.jpg" alt="vintage caravan photo booth sussex">
 				</div>
 
 				<div class="item">
-				  <img src="imgs/Home/slider/3wedding_guest_book.jpg" alt="wedding guest book">
+				  <img src="imgs/Home/slider/vintage_photobooth_sussex2.jpg" alt="retro photo booth sussex">
 				</div>
 
 				<div class="item">
-				  <img src="imgs/Home/slider/4jelly_bean_candy_machine.jpg" alt="jelly bean candy machine">
+				  <img src="imgs/Home/slider/vintage_photobooth_sussex3.jpg" alt="vintage photo booth brighton">
 				</div>
 
 				<div class="item">
-				  <img src="imgs/Home/slider/5pretty_girls_photobooth.jpg" alt="pretty girls in photo booth">
+				  <img src="imgs/Home/slider/vintage_photobooth_sussex4.jpg" alt="vintage photo booth hire in sussex">
 				</div>
 
 				<div class="item">
-				  <img src="imgs/Home/slider/6retro_photo_booth_brighton.jpg" alt="retro photobooth brighton">
+				  <img src="imgs/Home/slider/vintage_photobooth_sussex5.jpg" alt="wedding photo booth hire sussex">
 				</div>
 
 				<div class="item">
-				  <img src="imgs/Home/slider/7airstream_diner_seating_booth.jpg" alt="airstream diner seating booth">
+				  <img src="imgs/Home/slider/vintage_photobooth_sussex6.jpg" alt="party photo booth hiresussex">
+				</div>
+
+				<div class="item"> 
+				  <img src="imgs/Home/slider/vintage_photobooth_sussex7.jpg" alt="vintage caravan photo booth sussex">
 				</div>
 
 				<div class="item">
-				  <img src="imgs/Home/slider/8airstream_studio_uk.jpg" alt="airstream studio uk">
+				  <img src="imgs/Home/slider/vintage_photobooth_sussex8.jpg" alt="vintage photo booth sussex">
 				</div>
 
 				<div class="item">
-				  <img src="imgs/Home/slider/9airstream_photobooth_sussex.jpg" alt="airstream photobooth sussex">
+				  <img src="imgs/Home/slider/vintage_photobooth_sussex9.jpg" alt="photo booth hire in sussex">
 				</div>
 
 				<div class="item">
-				  <img src="imgs/Home/slider/10fairground_light_archway.jpg" alt="fairground light archway">
+				  <img src="imgs/Home/slider/vintage_photobooth_sussex10.jpg" alt="retro photo booth hire in sussex">
 				</div>
 
 				<div class="item">
-				  <img src="imgs/Home/slider/11unique_photobooth_wedding.jpg" alt="unique photobooth wedding">
+				  <img src="imgs/Home/slider/vintage_photobooth_sussex11.jpg" alt="party photo booth brighton">
 				</div>
 
 				<div class="item">
-				  <img src="imgs/Home/slider/12photo_booth_fun.jpg" alt="photobooth fun">
+				  <img src="imgs/Home/slider/vintage_photobooth_sussex12.jpg" alt="photo booth hire in sussex">
 				</div>
 
 				<div class="item">
-				  <img src="imgs/Home/slider/13retro_photobooth_sussex.jpg" alt="retro photobooth sussex">
+				  <img src="imgs/Home/slider/vintage_photobooth_sussex13.jpg" alt="wedding entertainment sussex">
 				</div>
 
 				<div class="item">
-				  <img src="imgs/Home/slider/14airstream_studio_photobooth.jpg" alt="airstream studio photobooth">
+				  <img src="imgs/Home/slider/vintage_photobooth_sussex14.jpg" alt="photo booth sussex">
 				</div>
 
 				<div class="item">
-				  <img src="imgs/Home/slider/15airstream_studio_photo_booth.jpg" alt="airstream studio photobooth">
+				  <img src="imgs/Home/slider/vintage_photobooth_sussex15.jpg" alt="airstream photo booth sussex">
 				</div>
 
 				<div class="item">
-				  <img src="imgs/Home/slider/16unique_photobooth.jpg" alt="unique photobooth">
+				  <img src="imgs/Home/slider/vintage_photobooth_sussex16.jpg" alt="hire a photo booth sussex">
 				</div>
-
+                
+                <div class="item">
+				  <img src="imgs/Home/slider/vintage_photobooth_sussex17.jpg" alt="airstream photo booth sussex">
+				</div>
+				
 				<div class="item">
-				  <img src="imgs/Home/slider/17vintage_photobooth_sussex.jpg" alt="vintage photobooth sussex">
+				  <img src="imgs/Home/slider/vintage_photobooth_sussex18.jpg" alt="hire a photo booth sussex">
 				</div>
 			</div>
 
@@ -147,11 +157,20 @@
 				</div>
 			</div>
 
-		  <section class="reviews white-box">
-          		<iframe class="review" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fabigail.markey%2Fposts%2F10154078824281146%3A0&width=350&show_text=true&appId=1401376156747304&height=311" width="350" height="311" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-                <iframe class="review" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fisaac.daluz.5%2Fposts%2F1033065053459032%3A0&width=350&show_text=true&appId=1401376156747304&height=368" width="350" height="368" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-			  	<iframe class="review" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Faaron.burns.9231%2Fposts%2F10154215450781084%3A0&width=350&show_text=true&appId=1401376156747304&height=368" width="350" height="368" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+		  <section class="reviews white-box white-box-margin">
+       			<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D304810626600370%26id%3D100012143044594%26substory_index%3D0&width=350" width="350" height="550" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+       		
+        		<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fhelena.higgins.5%2Fposts%2F10155013075246677%3A0&width=350" width="350" height="435" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+        		
+         		<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FRussJGrooms%2Fposts%2F1203937596379940%3A0&width=350" width="350" height="392" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 	 	  	</section>
+	 	  	
+	 	  	<div class="l-col-6-12">
+				<div class="white-box white-box-margin">
+	 	  	<script id='reviewwidgetscript' type='text/javascript' src='//www.hitched.co.uk/supplier/js/HitchedReviewWidget.js?site=//www.hitched.co.uk&id=31824'></script><div id="divWidgetSection" class="widgetSection"><div class="dvHeader"><a href="http://www.hitched.co.uk/wedding-photo-booths/kent/airstream-studio_33440.htm" class="links">Airstream Studio</a></div><div id="dvReviews" class="innerSpacing"></div><div class="innerSpacing" style="text-align: center;;"><a id="ancReadReview" href="http://www.hitched.co.uk/wedding-photo-booths/kent/airstream-studio_33440.htm#reviews" class="links">Read reviews</a> &nbsp; &nbsp; <a id="ancWriteReview" href="http://www.hitched.co.uk/wedding-photo-booths/kent/review/airstream-studio_33440.htm" class="links" style="display: inline"> Write a review</a></div><div id="dvFooter" class="dvFooter dvFooterLink"><a class="links" href="http://www.hitched.co.uk"><img src="//www.hitched.co.uk/images/logos/hitched.png" alt="hitched"></a></div></div>
+				</div>
+				
+		</div>
 		</section>
 	</div>
 </main>
