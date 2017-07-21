@@ -1,64 +1,89 @@
-// Include gulp
-var gulp = require('gulp');
+const gulp = require('gulp');
+const source = require('vinyl-source-stream');
+const buffer = require('vinyl-buffer');
+const browserify = require('browserify');
+const babelify = require('babelify');
+const uglify = require('gulp-uglify');
+const concat = require('gulp-concat');
+const sass = require('gulp-sass');
+const cleanCss = require('gulp-clean-css');
+const gutil = require('gulp-util');
+const rename = require('gulp-rename');
+const prefix = require('gulp-autoprefixer');
+const livereload = require('gulp-livereload');
+const pug = require('gulp-pug');
+const imagemin = require('gulp-imagemin');
+const paths = {
+  client: './src/scripts/main.js',
+  vendor: ['./src/scripts/vendor/jquery.js', './src/scripts/vendor/fittext.js'],
+  styles: './src/styles/main.sass',
+  watchStyles: './src/styles/**',
+  views: './src/views/*.pug',
+  watchViews: './src/views/**',
+  images: './src/images/**'
+};
 
-// Include Our Plugins
-var path = require('path');
-var jshint = require('gulp-jshint');
-var less = require('gulp-less');
-var cleanCSS = require('gulp-clean-css');
-var concatCSS = require('gulp-concat-css');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
-
-// Lint Task
-gulp.task('lint', function() {
-    return gulp.src('scripts/*.js')
-        .pipe(jshint())
-        .pipe(jshint.reporter('default'));
+// transpile to es2015 -> minify -> output in dist folder -> live reload
+gulp.task('client-scripts', () => {
+	browserify(paths.client)
+		.transform('babelify', {
+			presets: ['es2015'],
+			global: true
+		})
+		.bundle()
+		.pipe(source('index.js'))
+		.pipe(buffer())
+		.pipe(uglify())
+		.pipe(rename('client.min.js'))
+		.on('error', err => gutil.log(gutil.colors.red('[Error]'), err.toString()))
+		.pipe(gulp.dest('./dist/js'))
+		.pipe(livereload());
 });
 
-// Translate less to css and minify the result
-gulp.task('app-styles', function () {
-  return gulp.src('styles/app/app.less')
-    .pipe(less())
-    .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(rename('app.min.css'))
-    .pipe(gulp.dest('static/css'));
+gulp.task('vendor-scripts', () => {
+	return gulp.src(paths.vendor)
+		.pipe(concat('vendor.min.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('./dist/js'))
 });
 
-// Concate and minify vendor style sheets
-gulp.task('vendor-styles', function () {
-  return gulp.src('styles/vendor/*.css')
-    .pipe(concatCSS('vendor.min.css'))
-    .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(gulp.dest('static/css'));
+// transpile to css -> autoprefixer -> minify -> output in dist folder -> live reload
+gulp.task('styles', () => {
+  return gulp.src(paths.styles)
+		.pipe(sass().on('error', sass.logError))
+		.pipe(prefix({
+			browsers: ['last 15 versions', '> 1%', 'ie 8', 'ie 7'],
+			cascade: false
+		}))
+		.pipe(cleanCss())
+		.pipe(rename('bundle.min.css'))
+		.pipe(gulp.dest('./dist/css'))
+		.pipe(livereload());
 });
 
-// Concatenate & Minify JS app scripts
-gulp.task('app-scripts', function() {
-    return gulp.src(['scripts/app/*.js'])
-        .pipe(concat('app.js'))
-        .pipe(rename('app.min.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest('static/js'));
+// pug -> html
+gulp.task('views', () => {
+  return gulp.src(paths.views)
+    .pipe(pug())
+    .pipe(gulp.dest('./dist'))
+    .pipe(livereload());
 });
 
-// Concatenate & minify JS vendor scripts
-gulp.task('vendor-scripts', function() {
-    return gulp.src(['scripts/vendor/jquery.js', 'scripts/vendor/*.js', '!scripts/vendor/vendor.js'])
-        .pipe(concat('vendor.js'))
-        .pipe(gulp.dest('scripts/vendor'))
-        .pipe(rename('vendor.min.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest('static/js'));
+gulp.task('images', () => {
+	gulp.src(paths.images)
+	.pipe(imagemin())
+	.pipe(gulp.dest('./dist/images'))
+	.pipe(livereload());
 });
 
-// Watch Files For Changes
-gulp.task('watch', function() {
-    gulp.watch('scripts/app/*.js', ['lint', 'app-scripts']);
-    gulp.watch('styles/app/*.less', ['app-styles']);
+gulp.task('watch', () => {
+	livereload.listen();
+	gulp.watch(paths.images, ['images'])
+	gulp.watch(paths.watchStyles, ['styles'])
+	gulp.watch(paths.client, ['client-scripts'])
+  gulp.watch(paths.watchViews, ['views'])
 });
 
-// Gulp Tasks
-gulp.task('default', ['lint', 'app-styles', 'vendor-styles', 'app-scripts', 'vendor-scripts', 'watch']);
+
+
+gulp.task('default', ['client-scripts', 'vendor-scripts', 'styles', 'views', 'images', 'watch']);

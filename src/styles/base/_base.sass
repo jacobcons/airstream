@@ -1,0 +1,19 @@
+html
+	box-sizing: border-box
+	-webkit-font-smoothing: antialiased
+
+*, *::before, *::after
+	box-sizing: inherit
+
+body
+  font-family: 'Open Sans'
+  margin-top: calculate-rem(210px)
+  @include breakpoint(menu-collapse down)
+    margin-top: calculate-rem(60px)
+
+ul
+  margin: 0
+  padding: 0
+
+h1
+  color: black
