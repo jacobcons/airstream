@@ -1,10 +1,12 @@
 .arrow-link
-  @include font-size(15px)
+  @include font-size(16px)
   font-family: marketDeco
   color: $black
   text-decoration: none
   padding: 0.6rem
   transition: all 0.2s ease-out
+  @include breakpoint(medium down)
+    @include font-size(15px)
   &:after
     content: "\25B6"
     position: relative

@@ -3,7 +3,7 @@ const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 const browserify = require('browserify');
 const babelify = require('babelify');
-const uglify = require('gulp-uglify');
+const babili  = require('gulp-babili');
 const concat = require('gulp-concat');
 const sass = require('gulp-sass');
 const cleanCss = require('gulp-clean-css');
@@ -13,9 +13,13 @@ const prefix = require('gulp-autoprefixer');
 const livereload = require('gulp-livereload');
 const pug = require('gulp-pug');
 const imagemin = require('gulp-imagemin');
+const flatten = require('gulp-flatten');
+const es = require('event-stream');
+const pump = require('pump');
+const glob = require('glob');
 const paths = {
-  client: './src/scripts/main.js',
-  vendor: ['./src/scripts/vendor/jquery.js', './src/scripts/vendor/fittext.js'],
+  app: './src/scripts/app/*.js',
+  vendor: './src/scripts/vendor/*.js',
   styles: './src/styles/main.sass',
   watchStyles: './src/styles/**',
   views: './src/views/*.pug',
@@ -24,26 +28,30 @@ const paths = {
 };
 
 // transpile to es2015 -> minify -> output in dist folder -> live reload
-gulp.task('client-scripts', () => {
-	browserify(paths.client)
-		.transform('babelify', {
-			presets: ['es2015'],
-			global: true
-		})
-		.bundle()
-		.pipe(source('index.js'))
-		.pipe(buffer())
-		.pipe(uglify())
-		.pipe(rename('client.min.js'))
-		.on('error', err => gutil.log(gutil.colors.red('[Error]'), err.toString()))
-		.pipe(gulp.dest('./dist/js'))
-		.pipe(livereload());
+gulp.task('client-scripts', (done) => {
+  glob(paths.app, (err, files) => {
+    if (err) done(err);
+
+    let tasks = files.map(entry => {
+      return browserify(entry)
+    		.transform('babelify', {
+    			presets: ['es2016'],
+    			global: true
+    		})
+    		.bundle()
+    		.pipe(source(entry))
+    		.pipe(buffer())
+        .pipe(flatten())
+    		.pipe(gulp.dest('./dist/js'))
+    		.pipe(livereload());
+    });
+    es.merge(...tasks).on('end', done);
+  });
 });
 
 gulp.task('vendor-scripts', () => {
 	return gulp.src(paths.vendor)
-		.pipe(concat('vendor.min.js'))
-		.pipe(uglify())
+		.pipe(concat('vendor.js'))
 		.pipe(gulp.dest('./dist/js'))
 });
 
