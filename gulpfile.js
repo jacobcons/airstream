@@ -28,7 +28,7 @@ const paths = {
 };
 
 // transpile to es2015 -> minify -> output in dist folder -> live reload
-gulp.task('client-scripts', (done) => {
+gulp.task('app-scripts', (done) => {
   glob(paths.app, (err, files) => {
     if (err) done(err);
 
@@ -88,10 +88,10 @@ gulp.task('watch', () => {
 	livereload.listen();
 	gulp.watch(paths.images, ['images'])
 	gulp.watch(paths.watchStyles, ['styles'])
-	gulp.watch(paths.client, ['client-scripts'])
+	gulp.watch(paths.app, ['app-scripts'])
   gulp.watch(paths.watchViews, ['views'])
 });
 
 
 
-gulp.task('default', ['client-scripts', 'vendor-scripts', 'styles', 'views', 'images', 'watch']);
+gulp.task('default', ['app-scripts', 'vendor-scripts', 'styles', 'views', 'images', 'watch']);

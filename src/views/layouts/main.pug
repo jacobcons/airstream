@@ -6,7 +6,7 @@ html
     title
       block title
     link(rel="stylesheet" href="css/bundle.min.css")
-  body
+  block body
     .wrapper
       block header
           nav.nav.clearfix
@@ -96,7 +96,7 @@ html
                 a.social-icon(href="https://plus.google.com/106091941708335708484" target="_blank")
                   include ../includes/icons/g+.svg
       
-      block scripts
-        script(src="js/vendor.js")
-        script(src="js/main.js")
+    block scripts
+      script(src="js/vendor.js")
+      script(src="js/main.js")
     
