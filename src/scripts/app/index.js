@@ -97,18 +97,18 @@ async function renderReviews(urls) {
   initFacebookSDK();
 
   let reviewContainer = document.querySelector('.facebook__container');
-  const reviewTemplate = '<div class="facebook__review aos-init aos-animate" data-aos="fade-down"><div class="fb-post " data-href={url} data-width="auto"></div></div>';
+  const reviewTemplate = '<div class="facebook__review"><div class="fb-post" data-href={url} data-width="auto"></div></div>';
   const half = Math.floor(numberOfReviews / 2);
+
+
 
   // append half of the reviews to the first column
   for (let i = 0; i < half; i++) {
-    reviewContainer.firstChild.insertAdjacentHTML('beforeend', t(reviewTemplate, { url: urls[i] }));
+    reviewContainer.firstChild.insertAdjacentHTML('beforeEnd', t(reviewTemplate, { url: urls[i] }));
   }
 
   // append half of the reviews to the second column
   for (let i = half; i < numberOfReviews; i++) {
-    reviewContainer.lastChild.insertAdjacentHTML('beforeend', t(reviewTemplate, { url: urls[i] }));
+    reviewContainer.lastChild.insertAdjacentHTML('beforeEnd', t(reviewTemplate, { url: urls[i] }));
   }
-
-  reviewContainer.style.visibility = 'visible';
 }

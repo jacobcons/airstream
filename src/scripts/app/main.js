@@ -29,8 +29,9 @@ function toggleUnderline() {
   });
 }
 
-AOS.init();
+
 document.addEventListener('DOMContentLoaded', () => {
+  AOS.init();
   hamburgerMenu();
   toggleSubNav();
   toggleUnderline();
