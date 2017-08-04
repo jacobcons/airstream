@@ -1,5 +1,6 @@
 .facebook
   text-align: center
+  position: relative
 
 .facebook__stars
   unicode-bidi: bidi-override
@@ -8,6 +9,16 @@
   position: relative
   padding: 0
   display: inline-block
+
+.facebook__loader
+  position: absolute
+  top: 50%
+  left: 50%
+  margin-top: -20px
+  margin-left: -20px
+  height: 40px
+  width: 40px
+  background: url('../images/loading.gif') 50% no-repeat
 
 .facebook__stars--top
   color: #3b5998
@@ -18,7 +29,6 @@
   top: 0
   left: 0
   overflow: hidden
-
 
 .facebook__stars--bottom
   padding: 0

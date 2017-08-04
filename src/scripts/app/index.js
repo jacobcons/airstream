@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const [rating, qualifiedUrls] = await Promise.all([fetchStarRating(), buildUrls()]);
 
   renderReviews(qualifiedUrls, () => {
+    hideLoader();
     renderStarRating(rating);
     AOS.refreshHard();
   });
@@ -17,26 +18,6 @@ function t(s, d) {
   for (var p in d)
     s = s.replace(new RegExp('{' + p + '}', 'g'), d[p]);
   return s;
-}
-
-function initFacebookSDK() {
-  window.fbAsyncInit = function() {
-  FB.init({
-    appId            : '247871935641546',
-    autoLogAppEvents : true,
-    xfbml            : true,
-    version          : 'v2.10'
-  });
-  FB.AppEvents.logPageView();
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_GB/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
 }
 
 function initCrossFader() {
@@ -111,4 +92,9 @@ async function renderReviews(urls, cb) {
   }
 
   FB.XFBML.parse(null, cb);
+}
+
+function hideLoader() {
+  let loader = document.querySelector('.facebook__loader');
+  loader.style.display = 'none';
 }
