@@ -1,13 +1,15 @@
 const base = 'https://graph.facebook.com/882543461878481';
 const token = '?access_token=EAAYYSRcOKvcBAARSx9lIbGSE3Cj8X9BrvxAKeUDgxMN9cObKSinPraTDicZBT1vZAYsnIvsU5bDO5nX9g66B5xsFW5wRV7jxREtB52eumRG0swCZB3oe1vzjJhf4XpgtLUIhcIQRZCv9OHpidViI7q1XbjTQwDQgDZBtk1buRdgZDZD';
-const numberOfReviews = 4;
+const numberOfReviews = 8;
 
 document.addEventListener('DOMContentLoaded', async () => {
   initCrossFader();
-
   const [rating, qualifiedUrls] = await Promise.all([fetchStarRating(), buildUrls()]);
-  renderStarRating(rating);
-  renderReviews(qualifiedUrls);
+
+  renderReviews(qualifiedUrls, () => {
+    renderStarRating(rating);
+    AOS.refreshHard();
+  });
 });
 
 // tweet sized templating engine
@@ -93,14 +95,10 @@ async function buildUrls() {
   return urls;
 }
 
-async function renderReviews(urls) {
-  initFacebookSDK();
-
+async function renderReviews(urls, cb) {
   let reviewContainer = document.querySelector('.facebook__container');
-  const reviewTemplate = '<div class="facebook__review"><div class="fb-post" data-href={url} data-width="auto"></div></div>';
+  const reviewTemplate = '<div class="facebook__review" data-aos="fade-down" data-aos-offset="400"><div class="fb-post" data-href={url} data-width="auto"></div></div>';
   const half = Math.floor(numberOfReviews / 2);
-
-
 
   // append half of the reviews to the first column
   for (let i = 0; i < half; i++) {
@@ -111,4 +109,6 @@ async function renderReviews(urls) {
   for (let i = half; i < numberOfReviews; i++) {
     reviewContainer.lastChild.insertAdjacentHTML('beforeEnd', t(reviewTemplate, { url: urls[i] }));
   }
+
+  FB.XFBML.parse(null, cb);
 }

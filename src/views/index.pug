@@ -16,8 +16,6 @@ mixin stars()
 block title 
   | Vintage Photo Booths Hire Sussex – Vintage Airstream Rental
   
-block prepend body
-
 block content
   .cross-fader
     img.cross-fader__image(src="images/fader-3.jpg")
@@ -31,7 +29,7 @@ block content
     
   .facebook
     .facebook__stars.bottom-spacer--xl
-      .facebook__stars--top(data-aos="rating" data-aos-duration="600" data-aos-once="true")
+      .facebook__stars--top(data-aos="rating" data-aos-duration="600")
         +stars()
       .facebook__stars--bottom
         +stars()
