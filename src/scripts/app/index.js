@@ -57,15 +57,26 @@ const fetchReviewsOpenGraph = async() => await(await fetch(base + '/ratings' + t
 async function buildUrls() {
   let [reviews, reviewsOpenGraph] = await Promise.all([fetchReviews(), fetchReviewsOpenGraph()]);
 
+  // get post id for each review
+  console.log(reviewsOpenGraph.data);
+  const postIds = reviewsOpenGraph.data
+              .filter((review, i) => {
+                if (review.open_graph_story.data.review_text) {
+                  return true;
+                } else {
+                  reviews.data.splice(i, 1);
+                  return false;
+                }
+              })
+              .slice(0, numberOfReviews)
+              .map(review => review.open_graph_story.id);
+  console.log(postIds);
   // get user id for each review
   const userIds = reviews.data
               .slice(0, numberOfReviews)
               .map(review => review.reviewer.id);
 
-  // get post id for each review
-  const postIds = reviewsOpenGraph.data
-              .slice(0, numberOfReviews)
-              .map(review => review.open_graph_story.id);
+
 
   // build fully qualified urls from user and post id's
   let urls = [];
