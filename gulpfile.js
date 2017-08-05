@@ -18,55 +18,50 @@ const es = require('event-stream');
 const pump = require('pump');
 const glob = require('glob');
 const paths = {
-  app: './src/scripts/app/*.js',
-  vendor: './src/scripts/vendor/*.js',
+  appScripts: './src/scripts/app/main.js',
+  vendorScripts: './src/scripts/vendor/*.js',
+  watchScripts: './src/scripts/app/*.js',
   styles: './src/styles/main.sass',
   watchStyles: './src/styles/**',
   views: './src/views/*.pug',
   watchViews: './src/views/**',
-  images: './src/images/**'
+  images: './src/images/**',
 };
 
 // transpile to es2015 -> minify -> output in dist folder -> live reload
 gulp.task('app-scripts', (done) => {
-  glob(paths.app, (err, files) => {
-    if (err) done(err);
-
-    let tasks = files.map(entry => {
-      return browserify(entry)
-    		.transform('babelify', {
-    			presets: ['es2016'],
-    			global: true
-    		})
-    		.bundle()
-    		.pipe(source(entry))
-    		.pipe(buffer())
-        .pipe(flatten())
-    		.pipe(gulp.dest('./dist/js'))
-    		.pipe(livereload());
-    });
-    es.merge(...tasks).on('end', done);
-  });
+  return browserify(paths.appScripts)
+    .transform('babelify', {
+      presets: ['es2015'],
+      global: true,
+      extensions: ['.js'],
+    })
+    .bundle()
+    .pipe(source(paths.appScripts))
+    .pipe(buffer())
+    .pipe(flatten())
+    .pipe(gulp.dest('./dist/js'))
+    .pipe(livereload());
 });
 
 gulp.task('vendor-scripts', () => {
-	return gulp.src(paths.vendor)
-		.pipe(concat('vendor.js'))
-		.pipe(gulp.dest('./dist/js'))
+  return gulp.src(paths.vendorScripts)
+    .pipe(concat('vendor.js'))
+    .pipe(gulp.dest('./dist/js'));
 });
 
 // transpile to css -> autoprefixer -> minify -> output in dist folder -> live reload
 gulp.task('styles', () => {
   return gulp.src(paths.styles)
-		.pipe(sass().on('error', sass.logError))
-		.pipe(prefix({
-			browsers: ['last 15 versions', '> 1%', 'ie 8', 'ie 7'],
-			cascade: false
-		}))
-		.pipe(cleanCss())
-		.pipe(rename('bundle.min.css'))
-		.pipe(gulp.dest('./dist/css'))
-		.pipe(livereload());
+    .pipe(sass().on('error', sass.logError))
+    .pipe(prefix({
+      browsers: ['last 15 versions', '> 1%', 'ie 8', 'ie 7'],
+      cascade: false,
+    }))
+    .pipe(cleanCss())
+    .pipe(rename('bundle.min.css'))
+    .pipe(gulp.dest('./dist/css'))
+    .pipe(livereload());
 });
 
 // pug -> html
@@ -78,18 +73,18 @@ gulp.task('views', () => {
 });
 
 gulp.task('images', () => {
-	gulp.src(paths.images)
-	.pipe(imagemin())
-	.pipe(gulp.dest('./dist/images'))
-	.pipe(livereload());
+  gulp.src(paths.images)
+  .pipe(imagemin())
+  .pipe(gulp.dest('./dist/images'))
+  .pipe(livereload());
 });
 
 gulp.task('watch', () => {
-	livereload.listen();
-	gulp.watch(paths.images, ['images'])
-	gulp.watch(paths.watchStyles, ['styles'])
-	gulp.watch(paths.app, ['app-scripts'])
-  gulp.watch(paths.watchViews, ['views'])
+  livereload.listen();
+  gulp.watch(paths.images, ['images']);
+  gulp.watch(paths.watchStyles, ['styles']);
+  gulp.watch(paths.watchScripts, ['app-scripts']);
+  gulp.watch(paths.watchViews, ['views']);
 });
 
 

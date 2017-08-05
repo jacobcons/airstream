@@ -13,6 +13,8 @@
   @include font-size(14px)
   line-height: calculate-em(32px)
   margin: calculate-em(20px) 0
+  @include breakpoint (small down)
+    @include font-size(13px)
 
 .box--left
   text-align: left

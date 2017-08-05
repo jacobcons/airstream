@@ -1,38 +1,29 @@
-function hamburgerMenu() {
-  let hamburgerMenu = document.getElementById('js-hamburber-menu');
+import * as crossFader from './crossFader.js';
+import * as nav from './nav.js';
+import * as facebook from './facebook.js';
+import * as imageSlider from './imageSlider.js';
 
-  // click hamburger menu -> toggles primary-nav
-  hamburgerMenu.addEventListener('click', () => {
-    hamburgerMenu.classList.toggle('is-active');
-  });
-}
-
-function toggleSubNav() {
-  let hasSubItem = document.querySelectorAll('.nav__item--has-sub');
-
-  // click nav item with sub nav -> toggles sub-nav (small screens)
-  hasSubItem.forEach(item => {
-    item.addEventListener('click', () => {
-      item.classList.toggle('is-active');
-    });
-  });
-}
-
-function toggleUnderline() {
-  let hasSubLink = document.querySelectorAll('.nav__link--has-sub');
-
-  // click nav item with sub nav -> toggles permenant underline (small screens)
-  hasSubLink.forEach(link => {
-    link.addEventListener('click', () => {
-      link.classList.toggle('permenant-underline');
-    });
-  });
-}
-
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   AOS.init();
-  hamburgerMenu();
-  toggleSubNav();
-  toggleUnderline();
+
+  // nav
+  nav.hamburgerMenu();
+  nav.toggleSubNav();
+  nav.toggleUnderline();
+
+  // image slider
+  imageSlider.init();
+
+  if (document.body.classList.contains('home')) {
+    // cross fader
+    crossFader.init();
+
+    // facebook
+    const [rating, qualifiedUrls] = await Promise.all([facebook.fetchStarRating(), facebook.buildUrls()]);
+    facebook.renderReviews(qualifiedUrls, () => {
+      facebook.hideLoader();
+      facebook.renderStarRating(rating);
+      AOS.refreshHard();
+    });
+  }
 });
