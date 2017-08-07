@@ -1,7 +1,7 @@
 extends layouts/main.pug
 
-mixin home-box(title, src, alt, text, link)
-  .column.large-4.medium-6.small-12.bottom-spacer--xl
+mixin feature-box(title, src, alt, text, link)
+  .column.large-4.medium-6.small-12.bottom-spacer--lrg
     .box
       h2.box__title= title
       img.box__image(src= src alt= alt)
@@ -13,22 +13,20 @@ mixin stars()
     span ★
   - }
 
-block title
-  | Vintage Photo Booths Hire Sussex – Vintage Airstream Rental
-
-block prepend body
-  body.home
+block vars
+  - let title = "Vintage Photo Booths Hire Sussex – Vintage Airstream Rental"
+  - let bodyClasses = ["home"]
 
 block content
   .cross-fader
-    img.cross-fader__image(src="images/fader-3.jpg")
-    img.cross-fader__image(src="images/fader-2.jpg")
-    img.cross-fader__image(src="images/fader-1.jpg")
+    img.cross-fader__image(src="images/airstream_summer_wedding.jpg")
+    img.cross-fader__image(src="images/airstream_wedding_fireworks.jpg")
+    img.cross-fader__image(src="images/vintage_airstream_photo_booth.jpg")
 
   .row
-    +home-box("Exterior", "images/exterior-home.jpg", "", "Sed maximus, ipsum rhoncus fermentumdignissim, sapien ligula rhoncus mi, quisrutrum quam eros eget massa. Duis lobortis, nunc non tincidunt vehicula, urna quam finibus velit", "exterior.html")
-    +home-box("Photo booth", "images/photo-booth-home.jpg", "", "Donec blandit facilisis dignissim. Aliquam mattis metus luctus nibh sodales, et pulvinar neque dictum. Nullam feugiat pharetra quam sit amet ultricies", "photo-booth.html")
-    +home-box("Interior", "images/interior-home.jpg", "", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi venenatis hendrerit turpis, a egestas ex. Fusce rhoncus diam neque, eu venenatis libero blandit et. Quisque", "interior.html")
+    +feature-box("Exterior", "images/vintage_airstream_wedding.jpg", "", "Sed maximus, ipsum rhoncus fermentumdignissim, sapien ligula rhoncus mi, quisrutrum quam eros eget massa. Duis lobortis, nunc non tincidunt vehicula, urna quam finibus velit", "exterior.html")
+    +feature-box("Photo booth", "images/airstream_photo_booth.jpg", "", "Donec blandit facilisis dignissim. Aliquam mattis metus luctus nibh sodales, et pulvinar neque dictum. Nullam feugiat pharetra quam sit amet ultricies", "photo-booth.html")
+    +feature-box("Interior", "images/photo_booth_camera.jpg", "", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi venenatis hendrerit turpis, a egestas ex. Fusce rhoncus diam neque, eu venenatis libero blandit et. Quisque", "interior.html")
 
   .facebook
     .facebook__loader
@@ -41,7 +39,7 @@ block content
       .small-12.medium-5
       .small-12.medium-5
 
-block append scripts
+block prepend scripts
   script.
     window.fbAsyncInit = function() {
     FB.init({
@@ -56,6 +54,6 @@ block append scripts
        var js, fjs = d.getElementsByTagName(s)[0];
        if (d.getElementById(id)) {return;}
        js = d.createElement(s); js.id = id; js.async = true;
-       js.src = "//connect.facebook.net/en_GB/sdk.js";
+       js.src = "https://connect.facebook.net/en_GB/sdk.js";
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));

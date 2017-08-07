@@ -1,0 +1,11 @@
+extends main.pug
+
+mixin image-slider__image(src, alt)
+  img.image-slider__image(src= src alt= alt)
+
+block content
+  .image-slider
+    for image in images
+      +image-slider__image(image.src, image.alt)
+  h1.title.title--underline #{heading}
+  p #{text}

@@ -1,3 +1,19 @@
 .image-slider
+  width: 100%
+  overflow-x: scroll
+  white-space: nowrap
+  position: relative
+  &:before
+    content: '\25c4'
+    left: 0
+    @extend %slider-controls
+    @extend %drop-shadow
+  &:after
+    content: '\25ba'
+    right: 0
+    @extend %slider-controls
+    @extend %drop-shadow
 
 .image-slider__image
+  display: inline-block
+  margin-right: 1px

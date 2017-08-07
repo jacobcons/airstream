@@ -1,11 +1,33 @@
-extends layouts/main.pug
+extends layouts/booth-aspect.pug
 
-block title
-  | Vintage Photo Booths Hire Sussex – Vintage Airstream Rental
-
-block prepend body
-  body.interior
-
-block content
-  .image-slider
-    //+image-slider-image("images/interior-1.jpg")
+block vars
+  - let title = "Interior - Vintage Photo Booths Hire Sussex – Vintage Airstream Rental"
+  -
+    let images = [
+      {
+        src: "images/animal_mask_photo_booth.jpg",
+        alt: ""
+      },
+      {
+        src: "images/bride_enjoying_photo_booth.jpg",
+        alt: ""
+      },
+      {
+        src: "images/fancy_dress_photo_booth.jpg",
+        alt: ""
+      },
+      {
+        src: "images/girls_enjoying_photo_booth.jpg",
+        alt: ""
+      },
+      {
+        src: "images/girls_in_photo_booth.jpg",
+        alt: ""
+      },
+    ]
+  - let heading = "Interior"
+  -
+    let text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae orci est. Vestibulum eu sapien id
+                  neque vestibulum gravida. Aliquam non tortor massa. Ut vitae enim sed orci fermentum commodo. Ut
+                  hendrerit libero sapien, vitae vestibulum nulla ullamcorper malesuada. Proin non eros est. Mauris
+                  varius ex sed cursus egestas. Curabitur vestibulum gravida imperdiet`

@@ -53,7 +53,7 @@ gulp.task('vendor-scripts', () => {
 // transpile to css -> autoprefixer -> minify -> output in dist folder -> live reload
 gulp.task('styles', () => {
   return gulp.src(paths.styles)
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({ includePaths: './node_modules/foundation-sites/scss' }).on('error', sass.logError))
     .pipe(prefix({
       browsers: ['last 15 versions', '> 1%', 'ie 8', 'ie 7'],
       cascade: false,

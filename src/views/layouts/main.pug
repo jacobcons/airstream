@@ -1,12 +1,12 @@
+block vars
 html
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title
-      block title
+    title #{title}
     link(rel="stylesheet" href="css/bundle.min.css")
-  block body
+  body(class=bodyClasses)
     .wrapper
       block header
           nav.nav.clearfix
@@ -32,7 +32,7 @@ html
                     a.nav__link.sub-nav__link(href="events.html") Events
               li
                 a(href="index.html")
-                  img.primary-nav__logo(src="images/logo.png")
+                  img.primary-nav__logo(src="images/airstream_studio_logo.png")
               li
                 a.nav__link.primary-nav__link(href="prices.html") Prices
               li
