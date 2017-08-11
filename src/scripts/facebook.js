@@ -2,8 +2,9 @@ const AOS = require('aos');
 const queryString = require('query-string');
 
 module.exports = {
-  url: 'https://graph.facebook.com/882543461878481{path}',
+  url: 'https://graph.facebook.com/{path}?',
   access_token: 'EAAYYSRcOKvcBAARSx9lIbGSE3Cj8X9BrvxAKeUDgxMN9cObKSinPraTDicZBT1vZAYsnIvsU5bDO5nX9g66B5xsFW5wRV7jxREtB52eumRG0swCZB3oe1vzjJhf4XpgtLUIhcIQRZCv9OHpidViI7q1XbjTQwDQgDZBtk1buRdgZDZD',
+  pageId: '882543461878481',
   numberOfReviews: 8,
 
   async render() {
@@ -23,8 +24,8 @@ module.exports = {
   },
 
   async fetchStarRating() {
-    const res = await(await fetch(this.t(this.url, { path: '/' }) + queryString.stringify({ access_token: this.access_token, fields: 'overall_star_rating'}))).json();
-    const rating = (res.data.overall_star_rating / 5) * 100 + '%';
+    const res = await(await fetch(this.t(this.url, { path: this.pageId }) + queryString.stringify({ access_token: this.access_token, fields: 'overall_star_rating'}))).json();
+    const rating = (res.overall_star_rating / 5) * 100 + '%';
     return rating;
   },
 
@@ -35,11 +36,11 @@ module.exports = {
   },
 
   async fetchReviews() {
-    return await(await fetch(this.t(this.url, { path: '/rating' }) + queryString.stringify({ access_token: this.access_token }))).json();
+    return await(await fetch(this.t(this.url, { path: this.pageId + '/ratings' }) + queryString.stringify({ access_token: this.access_token }))).json();
   },
 
   async fetchReviewsOpenGraph() {
-    return await(await fetch(this.t(this.url, { path: '/rating' }) + queryString.stringify({ access_token: this.access_token, fields: 'open_graph_story' }))).json();
+    return await(await fetch(this.t(this.url, { path: this.pageId + '/ratings' }) + queryString.stringify({ access_token: this.access_token, fields: 'open_graph_story' }))).json();
   },
 
   async buildUrls() {
