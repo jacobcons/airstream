@@ -1,14 +1,15 @@
 // image scales -> width = 90vw -> calculate height to retain aspect ratio
 // height needed due to absolute positioned children
-$cross-fader-height: 689px / 1440px * 90vw
+
 
 .cross-fader
+  $height: 689px / 1440px * 90vw
   position: relative
   margin: 0 0 calculate-rem(128px)
   max-height: 689px
-  height: $cross-fader-height
+  height: $height
   @include breakpoint(medium down)
-    margin: 0 0 calculate-rem(64px)  
+    margin: 0 0 calculate-rem(64px)
 
 
 .cross-fader__image

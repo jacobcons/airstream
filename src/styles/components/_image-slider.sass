@@ -1,19 +1,26 @@
 .image-slider
-  width: 100%
-  overflow-x: scroll
-  white-space: nowrap
   position: relative
+
+.image-slider__scroll
+  overflow-x: auto
+  overflow-y: hidden
+  -webkit-overflow-scrolling: touch
+  white-space: nowrap
+
+.image-slider__left-control
+  @extend %slider-controls
+  @extend %drop-shadow
+  left: 0
   &:before
     content: '\25c4'
-    left: 0
-    @extend %slider-controls
-    @extend %drop-shadow
-  &:after
+
+.image-slider__right-control
+  @extend %slider-controls
+  @extend %drop-shadow
+  right: 0
+  &:before
     content: '\25ba'
-    right: 0
-    @extend %slider-controls
-    @extend %drop-shadow
 
 .image-slider__image
   display: inline-block
-  margin-right: 1px
+  max-width: 80%

@@ -5,7 +5,12 @@ mixin image-slider__image(src, alt)
 
 block content
   .image-slider
-    for image in images
-      +image-slider__image(image.src, image.alt)
+    .image-slider__scroll
+      for image in images
+        +image-slider__image(image.src, image.alt)
+    .image-slider__left-control
+    .image-slider__right-control
+
+
   h1.title.title--underline #{heading}
   p #{text}

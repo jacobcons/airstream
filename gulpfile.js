@@ -18,41 +18,32 @@ const es = require('event-stream');
 const pump = require('pump');
 const glob = require('glob');
 const paths = {
-  appScripts: './src/scripts/app/main.js',
-  vendorScripts: './src/scripts/vendor/*.js',
-  watchScripts: './src/scripts/app/*.js',
-  styles: './src/styles/main.sass',
-  watchStyles: './src/styles/**',
-  views: './src/views/*.pug',
-  watchViews: './src/views/**',
+  mainJs: './src/scripts/main.js',
+  js: './src/scripts/*.js',
+  mainSass: './src/styles/main.sass',
+  sass: './src/styles/**',
+  pages: './src/views/*.pug',
+  views: './src/views/**',
   images: './src/images/**',
 };
 
-// transpile to es2015 -> minify -> output in dist folder -> live reload
-gulp.task('app-scripts', (done) => {
-  return browserify(paths.appScripts)
+gulp.task('js', (done) => {
+  return browserify(paths.mainJs)
     .transform('babelify', {
-      presets: ['es2015'],
+      presets: ['es2017', 'es2016'],
       global: true,
-      extensions: ['.js'],
     })
     .bundle()
-    .pipe(source(paths.appScripts))
+    .pipe(source(paths.mainJs))
     .pipe(buffer())
     .pipe(flatten())
     .pipe(gulp.dest('./dist/js'))
     .pipe(livereload());
 });
 
-gulp.task('vendor-scripts', () => {
-  return gulp.src(paths.vendorScripts)
-    .pipe(concat('vendor.js'))
-    .pipe(gulp.dest('./dist/js'));
-});
 
-// transpile to css -> autoprefixer -> minify -> output in dist folder -> live reload
-gulp.task('styles', () => {
-  return gulp.src(paths.styles)
+gulp.task('sass', () => {
+  return gulp.src(paths.mainSass)
     .pipe(sass({ includePaths: './node_modules/foundation-sites/scss' }).on('error', sass.logError))
     .pipe(prefix({
       browsers: ['last 15 versions', '> 1%', 'ie 8', 'ie 7'],
@@ -64,9 +55,8 @@ gulp.task('styles', () => {
     .pipe(livereload());
 });
 
-// pug -> html
-gulp.task('views', () => {
-  return gulp.src(paths.views)
+gulp.task('pug', () => {
+  return gulp.src(paths.pages)
     .pipe(pug())
     .pipe(gulp.dest('./dist'))
     .pipe(livereload());
@@ -82,11 +72,9 @@ gulp.task('images', () => {
 gulp.task('watch', () => {
   livereload.listen();
   gulp.watch(paths.images, ['images']);
-  gulp.watch(paths.watchStyles, ['styles']);
-  gulp.watch(paths.watchScripts, ['app-scripts']);
-  gulp.watch(paths.watchViews, ['views']);
+  gulp.watch(paths.sass, ['sass']);
+  gulp.watch(paths.js, ['js']);
+  gulp.watch(paths.views, ['pug']);
 });
 
-
-
-gulp.task('default', ['app-scripts', 'vendor-scripts', 'styles', 'views', 'images', 'watch']);
+gulp.task('default', ['js', 'sass', 'pug', 'images', 'watch']);
