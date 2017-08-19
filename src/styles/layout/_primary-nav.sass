@@ -3,7 +3,11 @@ $border: 1px
 $total: $height + $border
 
 .primary-nav
-  margin-bottom: calculate-rem(220px)
+  padding: calculate-rem(225px) 0 calculate-rem(175px) 0
+  @include breakpoint(medium down)
+    padding: calculate-rem(60px) 0 0
+
+.primary-nav__list
   position: relative
   display: flex
   justify-content: space-between
@@ -15,7 +19,7 @@ $total: $height + $border
     display: none
     border: none
     height: initial
-    margin-bottom: calculate-rem(60px)
+
 
 .primary-nav__link
   height: $total

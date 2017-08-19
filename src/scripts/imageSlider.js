@@ -15,9 +15,10 @@ class ImageSlider {
     return (this.elSlider.offsetWidth - this.elImage.offsetWidth) / 2;
   }
 
-  // returns image number being viewed as float
+  // returns image number being viewed as a float e.g. if 2nd image is centered it will return 2
   get imageNumber() {
     let imageNumber = (this.elSlider.scrollLeft + this.centerAdjust) / this.elImage.offsetWidth;
+    // if image being viewed is nearly centered assume that the image number is centered
     return (Math.abs(imageNumber - Math.round(imageNumber)) < 0.05) ? Math.round(imageNumber) : imageNumber;
   }
 

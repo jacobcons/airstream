@@ -4,8 +4,8 @@ const AOS = require('AOS');
 
 class FacebookReviews {
   constructor(reviewCount) {
-    this.elLoader = document.querySelector('.facebook__loader');
-    this.elContainer = document.getElementById('js-facebook-review-container');
+    this.elLoader = document.querySelector('.loader');
+    this.elContainer = document.querySelector('.review-container');
     this.reviewCount = reviewCount;
   }
 
@@ -29,7 +29,7 @@ class FacebookReviews {
 
   reviewTemplate(url) {
     return `
-    <div class="facebook__review" data-aos="fade-down" data-aos-offset="200">
+    <div class="review" data-aos="fade-down" data-aos-offset="200">
       <div class="fb-post" data-href=${url} data-width="auto"></div>
     </div>
     `;

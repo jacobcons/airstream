@@ -22,14 +22,17 @@
   $width: 2.6em
   $height: 5.6em
 
+  cursor: pointer
   background-color: $white
   width: $width
   height: $height
   position: absolute
   top: 50%
-  margin-top: -$width
+  margin-top: -($height / 2)
   text-align: center
   line-height: $height
   font-size: calculate-rem(18px)
   @include breakpoint(medium down)
     font-size: calculate-rem(14px)
+  @include breakpoint(small down)
+    display: none

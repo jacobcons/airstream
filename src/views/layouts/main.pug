@@ -10,76 +10,76 @@ html(lang="en")
     block facebook
     .wrapper
       block header
-          nav.nav.clearfix
-            #js-hamburber-menu.hamburger-menu
+          nav.nav.primary-nav.clearfix
+            .hamburger-menu
               span.hamburger-menu__line
-            ul.primary-nav
-              li
+            ul.primary-nav__list
+              li.nav__item.primary-nav__item
                 a.nav__link.primary-nav__link(href="index.html") Home
-              li.nav__item--has-sub
+              li.nav__item.nav__item--has-sub.primary-nav__item
                 a.nav__link.nav__link--has-sub.primary-nav__link(href="javascript:void(0)") Airstream Photo Booth
                 ul.sub-nav
-                  li
+                  li.nav__item.sub-nav__item
                     a.nav__link.sub-nav__link(href="interior.html") Interior
-                  li
+                  li.nav__item.sub-nav__item
                     a.nav__link.sub-nav__link(href="photo-booth.html") Photo Booth
-                  li
+                  li.nav__item.sub-nav__item
                     a.nav__link.sub-nav__link(href="exterior.html") Exterior
-                  li
+                  li.nav__item.sub-nav__item
                     a.nav__link.sub-nav__link(href="guest-books.html") Guest Books
-                  li
+                  li.nav__item.sub-nav__item
                     a.nav__link.sub-nav__link(href="probs-&-features.html") Props & Features
-                  li
+                  li.nav__item.sub-nav__item
                     a.nav__link.sub-nav__link(href="events.html") Events
-              li
+              li.nav__item.primary-nav__item
                 a(href="index.html")
                   img.primary-nav__logo(src="images/airstream_studio_logo.png")
-              li
+              li.nav__item.primary-nav__item
                 a.nav__link.primary-nav__link(href="prices.html") Prices
-              li
+              li.nav__item.primary-nav__item
                 a.nav__link.primary-nav__link(href="social-media.html") Social Media
-              li
+              li.nav__item.primary-nav__item
                 a.nav__link.primary-nav__link(href="contact.html") Contact
 
       block content
 
       block footer
-        footer.footer
-          .row.text-center
+        footer.footer.layout-centered
+          .row
             .medium-4.small-12
-              nav.nav
-                ul.list-nav
-                  li
+              nav.nav.list-nav
+                ul.list-nav__list
+                  li.nav__item.list-nav__item
                     a.nav__link.list-nav__link(href="index.html") Home
-                  li.nav__item--has-sub
+                  li.nav__item.nav__item--has-sub.list-nav__item
                     a.nav__link.nav__link--has-sub.list-nav__link(href="javascript:void(0)") Airstream photo booth
                     ul.sub-nav.sub-nav--static
-                      li
+                      li.nav__item.sub-nav__item
                         a.nav__link.sub-nav__link(href="interior.html") Interior
-                      li
+                      li.nav__item.sub-nav__item
                         a.nav__link.sub-nav__link(href="photo-booth.html") Photo Booth
-                      li
+                      li.nav__item.sub-nav__item
                         a.nav__link.sub-nav__link(href="exterior.html") Exterior
-                      li
+                      li.nav__item.sub-nav__item
                         a.nav__link.sub-nav__link(href="guest-books.html") Guest Books
-                      li
+                      li.nav__item.sub-nav__item
                         a.nav__link.sub-nav__link(href="props-&-features.html") Props & Features
-                      li
+                      li.nav__item.sub-nav__item
                         a.nav__link.sub-nav__link(href="events.html") Events
-                  li
+                  li.nav__item.list-nav__item
                     a.nav__link.list-nav__link(href="prices.html") Prices
-                  li
+                  li.nav__item.list-nav__item
                     a.nav__link.list-nav__link(href="social-media.html") Social Media
-            .medium-4.small-12.bottom-spacer
-              nav.nav
-                ul.list-nav
-                  li.list-nav__item
+            .medium-4.small-12
+              nav.nav.list-nav.bottom-spacer
+                ul.list-nav__list
+                  li.nav__item.list-nav__item
                     a.nav__link.list-nav__link(href="wedding-suppliers.html") Wedding suppliers
-                  li.list-nav__item
+                  li.nav__item.list-nav__item
                     a.nav__link.list-nav__link(href="vintage-shops-sussex.html") Vintage shops sussex
-                  li.list-nav__item
+                  li.nav__item.list-nav__item
                     a.nav__link.list-nav__link(href="vintage-events.html") Vintage events
-                  li.list-nav__item
+                  li.nav__item.list-nav__item
                     a.nav__link.list-nav__link(href="contact.html") Contact
             .medium-4.small-12
               .row.align-center

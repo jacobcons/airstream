@@ -4,7 +4,6 @@
   display: none
   position: relative
   z-index: 2
-  padding-bottom: calculate-rem(60px)
   @include square(40px)
   @include breakpoint(medium down)
     display: block
@@ -35,7 +34,7 @@
 
 .hamburger-menu.is-active
   @include breakpoint(medium down)
-    + .primary-nav
+    + .primary-nav__list
       display: block
   .hamburger-menu__line
     background-color: rgba(0,0,0,0)

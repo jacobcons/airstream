@@ -1,7 +1,7 @@
 extends layouts/main.pug
 
 mixin feature-box(title, src, alt, text, link)
-  .column.large-4.medium-6.small-12.bottom-spacer--lrg
+  .column.large-4.medium-6.small-12
     .box
       h2.box__title= title
       img.box__image(src= src alt= alt)
@@ -18,24 +18,26 @@ block vars
   - let bodyClasses = ["home"]
 
 block content
-  .cross-fader
-    img.cross-fader__image(src="images/airstream_summer_wedding.jpg")
-    img.cross-fader__image(src="images/airstream_wedding_fireworks.jpg")
-    img.cross-fader__image(src="images/vintage_airstream_photo_booth.jpg")
+  section.section
+    .cross-fader
+      img.cross-fader__image(src="images/airstream_summer_wedding.jpg")
+      img.cross-fader__image(src="images/airstream_wedding_fireworks.jpg")
+      img.cross-fader__image(src="images/vintage_airstream_photo_booth.jpg")
 
-  .row.bottom-spacer--lrg
-    +feature-box("Exterior", "images/vintage_airstream_wedding.jpg", "", "Sed maximus, ipsum rhoncus fermentumdignissim, sapien ligula rhoncus mi, quisrutrum quam eros eget massa. Duis lobortis, nunc non tincidunt vehicula, urna quam finibus velit", "exterior.html")
-    +feature-box("Photo booth", "images/airstream_photo_booth.jpg", "", "Donec blandit facilisis dignissim. Aliquam mattis metus luctus nibh sodales, et pulvinar neque dictum. Nullam feugiat pharetra quam sit amet ultricies", "photo-booth.html")
-    +feature-box("Interior", "images/photo_booth_camera.jpg", "", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi venenatis hendrerit turpis, a egestas ex. Fusce rhoncus diam neque, eu venenatis libero blandit et. Quisque", "interior.html")
+  section.section.layout-centered
+    .row
+      +feature-box("Exterior", "images/vintage_airstream_wedding.jpg", "", "Sed maximus, ipsum rhoncus fermentumdignissim, sapien ligula rhoncus mi, quisrutrum quam eros eget massa. Duis lobortis, nunc non tincidunt vehicula, urna quam finibus velit", "exterior.html")
+      +feature-box("Photo booth", "images/airstream_photo_booth.jpg", "", "Donec blandit facilisis dignissim. Aliquam mattis metus luctus nibh sodales, et pulvinar neque dictum. Nullam feugiat pharetra quam sit amet ultricies", "photo-booth.html")
+      +feature-box("Interior", "images/photo_booth_camera.jpg", "", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi venenatis hendrerit turpis, a egestas ex. Fusce rhoncus diam neque, eu venenatis libero blandit et. Quisque", "interior.html")
 
-  .facebook
-    .facebook__loader
-    .facebook__stars.bottom-spacer--xl
-      .facebook__stars--top(data-aos="rating" data-aos-duration="600" data-aos-offset="300")
+  section.section.layout-centered
+    .loader
+    .stars
+      .stars__top(data-aos="fill-stars" data-aos-duration="600" data-aos-offset="300")
         +stars()
-      .facebook__stars--bottom
+      .stars__bottom
         +stars()
-    #js-facebook-review-container.row.align-center
+    .review-container.row.align-center
       .small-12.medium-5
       .small-12.medium-5
 

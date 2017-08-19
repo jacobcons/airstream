@@ -16,3 +16,26 @@
   &:hover
     color: $white
     background-color: $black
+
+.title
+  text-align: center
+  font-family: marketDeco
+  font-weight: normal
+  letter-spacing: 0.8em
+  @include breakpoint(small down)
+    @include font-size(22px)
+
+.title--underline
+  display: inline-block
+  position: relative
+  padding: 2rem 0
+  margin: 1rem 0
+  &:after
+    content: ""
+    display: block
+    width: 34%
+    border-bottom: 1px solid #000
+    position: absolute
+    left: 50%
+    top: 100%
+    margin-left: -18%

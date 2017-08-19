@@ -4,13 +4,16 @@ mixin image-slider__image(src, alt)
   img.image-slider__image(src= src alt= alt)
 
 block content
-  .image-slider
-    .image-slider__scroll
-      for image in images
-        +image-slider__image(image.src, image.alt)
-    .image-slider__left-control
-    .image-slider__right-control
+  section.section
+    .image-slider
+      .image-slider__scroll
+        for image in images
+          +image-slider__image(image.src, image.alt)
+      .image-slider__left-control
+      .image-slider__right-control
 
-
-  h1.title.title--underline #{heading}
-  p #{text}
+  section.section.section--secondary.layout-centered
+    h1.title.title--underline #{heading}
+    .text-wrapper
+        p #{text}
+    a.btn.btn--light Contact us
