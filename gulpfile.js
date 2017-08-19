@@ -32,6 +32,7 @@ gulp.task('js', (done) => {
     .transform('babelify', {
       presets: ['es2017', 'es2016'],
       global: true,
+
     })
     .bundle()
     .pipe(source(paths.mainJs))
@@ -49,8 +50,7 @@ gulp.task('sass', () => {
       browsers: ['last 15 versions', '> 1%', 'ie 8', 'ie 7'],
       cascade: false,
     }))
-    .pipe(cleanCss())
-    .pipe(rename('bundle.min.css'))
+    .pipe(rename('bundle.css'))
     .pipe(gulp.dest('./dist/css'))
     .pipe(livereload());
 });
@@ -63,10 +63,15 @@ gulp.task('pug', () => {
 });
 
 gulp.task('images', () => {
-  gulp.src(paths.images)
-  .pipe(imagemin())
-  .pipe(gulp.dest('./dist/images'))
-  .pipe(livereload());
+  return gulp.src(paths.images)
+    .pipe(imagemin([
+      imagemin.gifsicle({ interlaced: true }),
+      imagemin.jpegtran({ progressive: true }),
+      imagemin.optipng({ optimizationLevel: 5 }),
+      imagemin.svgo({ plugins: [{ removeViewBox: true }] }),
+    ]))
+    .pipe(gulp.dest('./dist/images'))
+    .pipe(livereload());
 });
 
 gulp.task('watch', () => {

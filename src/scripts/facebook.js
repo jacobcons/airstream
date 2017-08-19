@@ -8,10 +8,10 @@ module.exports = {
   numberOfReviews: 8,
 
   async render() {
-    const [rating, qualifiedUrls] = await Promise.all([this.fetchStarRating(), this.buildUrls()]);
-    this.renderReviews(qualifiedUrls, () => {
+    const [starRating, postUrls] = await Promise.all([this.fetchStarRating(), this.buildUrls()]);
+    this.renderReviews(postUrls, () => {
       this.hideLoader();
-      this.renderStarRating(rating);
+      this.renderStarRating(starRating);
       AOS.refreshHard();
     });
   },
@@ -64,7 +64,7 @@ module.exports = {
                 .slice(0, this.numberOfReviews)
                 .map(review => review.reviewer.id);
 
-    // build fully qualified urls from user and post id's
+    // build post urls from user and post id's
     let urls = [];
     for (let i = 0; i < this.numberOfReviews; i++) {
       urls.push('https://www.facebook.com/' + userIds[i] + '/posts/' + postIds[i]);
@@ -93,7 +93,16 @@ module.exports = {
     }
 
     // embed social plugins and run callback when done
-    FB.XFBML.parse(reviewContainer, cb);
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId            : '247871935641546',
+        autoLogAppEvents : true,
+        xfbml            : true,
+        version          : 'v2.10'
+      });
+      FB.AppEvents.logPageView();
+      //FB.XFBML.parse(reviewContainer, cb);
+    };
   },
 
   hideLoader() {

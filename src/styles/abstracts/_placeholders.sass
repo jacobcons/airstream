@@ -19,12 +19,17 @@
         transform: scaleX(1)
 
 %slider-controls
+  $width: 2.6em
+  $height: 5.6em
+
   background-color: $white
-  width: 50px
-  height: 100px
+  width: $width
+  height: $height
   position: absolute
   top: 50%
-  margin-top: -50px
+  margin-top: -$width
   text-align: center
-  line-height: 100px
+  line-height: $height
   font-size: calculate-rem(18px)
+  @include breakpoint(medium down)
+    font-size: calculate-rem(14px)

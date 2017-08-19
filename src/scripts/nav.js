@@ -1,38 +1,40 @@
-module.exports = {
-  init() {
-    this.hamburgerMenu();
-    this.toggleSubNav();
-    this.toggleUnderline();
-  },
+class Nav {
+  constructor() {
+    this.elHamburgerMenu = document.getElementById('js-hamburber-menu');
+    this.hasSubItem = document.querySelectorAll('.nav__item--has-sub');
+    this.hasSubLink = document.querySelectorAll('.nav__link--has-sub');
+  }
 
   hamburgerMenu() {
-    let hamburgerMenu = document.getElementById('js-hamburber-menu');
-
     // click hamburger menu -> toggles primary-nav
-    hamburgerMenu.addEventListener('click', () => {
-      hamburgerMenu.classList.toggle('is-active');
+    this.elHamburgerMenu.addEventListener('click', () => {
+      this.elHamburgerMenu.classList.toggle('is-active');
     });
-  },
+  }
 
   toggleSubNav() {
-    let hasSubItem = document.querySelectorAll('.nav__item--has-sub');
-
     // click nav item with sub nav -> toggles sub-nav (small screens)
-    hasSubItem.forEach(item => {
+    this.hasSubItem.forEach(item => {
       item.addEventListener('click', () => {
         item.classList.toggle('is-active');
       });
     });
-  },
+  }
 
   toggleUnderline() {
-    let hasSubLink = document.querySelectorAll('.nav__link--has-sub');
-
     // click nav item with sub nav -> toggles permenant underline (small screens)
-    hasSubLink.forEach(link => {
+    this.hasSubLink.forEach(link => {
       link.addEventListener('click', () => {
         link.classList.toggle('permenant-underline');
       });
     });
   }
-};
+
+  init() {
+    this.hamburgerMenu();
+    this.toggleSubNav();
+    this.toggleUnderline();
+  }
+}
+
+module.exports = new Nav();

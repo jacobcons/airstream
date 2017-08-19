@@ -25,10 +25,12 @@
     "babel-preset-es2017": "^6.24.1",
     "babelify": "^7.3.0",
     "browserify": "^14.3.0",
+    "browserify-shim": "^3.8.14",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-babili": "^0.1.4",
     "gulp-clean-css": "^3.0.4",
+    "gulp-clone": "^1.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-flatten": "^0.3.1",
     "gulp-imagemin": "^3.2.0",
@@ -38,6 +40,8 @@
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^2.1.2",
     "gulp-util": "^3.0.8",
+    "gulp-webp": "^2.3.0",
+    "imagemin-webp": "^4.0.0",
     "pump": "^1.0.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
@@ -45,6 +49,7 @@
   "dependencies": {
     "aos": "^2.2.0",
     "foundation-sites": "^6.4.1",
-    "query-string": "^5.0.0"
+    "lscache": "^1.1.0",
+    "scroll": "^2.0.0"
   }
 }

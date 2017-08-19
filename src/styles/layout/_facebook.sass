@@ -14,13 +14,13 @@
 
 .facebook__loader
   position: absolute
-  top: 50%
   left: 50%
-  margin-top: -20px
+  top: 40px
   margin-left: -20px
   height: 40px
   width: 40px
   background: url('../images/loading.gif') 50% no-repeat
+  z-index: 2
 
 .facebook__stars--top
   color: #3b5998
@@ -39,6 +39,9 @@
 
 .facebook__review
   padding: calculate-rem(8px)
+
+#js-facebook-review-container
+  display: none
 
 [data-aos="rating"]
   width: 0

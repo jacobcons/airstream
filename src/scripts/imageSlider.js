@@ -1,62 +1,83 @@
-module.exports = {
+const scroll = require('scroll');
+
+class ImageSlider {
+  constructor(frames = 60, time = 1000) {
+    this.elSlider = document.querySelector('.image-slider__scroll');
+    this.elImage = document.querySelector('.image-slider__image');
+    this.elLeftControl = document.querySelector('.image-slider__left-control');
+    this.elRightControl = document.querySelector('.image-slider__right-control');
+    this.frames = frames;
+    this.time = time;
+  }
+
+  // value needed to adjust scrollLeft so image is horizontally centered
+  get centerAdjust() {
+    return (this.elSlider.offsetWidth - this.elImage.offsetWidth) / 2;
+  }
+
+  // returns image number being viewed as float
+  get imageNumber() {
+    let imageNumber = (this.elSlider.scrollLeft + this.centerAdjust) / this.elImage.offsetWidth;
+    return (Math.abs(imageNumber - Math.round(imageNumber)) < 0.05) ? Math.round(imageNumber) : imageNumber;
+  }
+
   init() {
-    let slider = document.querySelector('.image-slider__scroll');
-    const image = slider.firstChild;
-    const leftControl = document.querySelector('.image-slider__left-control');
-    const rightControl = document.querySelector('.image-slider__right-control');
-
-    leftControl.addEventListener('click', () => {
+    this.elLeftControl.addEventListener('click', () => {
       // if slider isn't at beginning
-      if (slider.scrollLeft != 0) {
-        // value needed to adjust scrollLeft so image is centered
-        let centerAlign = this.calcCenterAlign(slider.offsetWidth, image.offsetWidth);
+      if (this.elSlider.scrollLeft != 0) {
+        // calculate image number of previous image
+        const prevImage = this.prevImageNumber(this.imageNumber);
 
-        // calculate which image is centered in slider as float
-        let imageNumber = this.calcImageNumber(slider.scrollLeft, centerAlign, image.offsetWidth);
-
-        // convert imageNumber to previous image
-        imageNumber = this.prevImageNumber(imageNumber);
-
-        // set scroll left of slider to center new image
-        slider.scrollLeft = this.calcScrollLeft(imageNumber, image.offsetWidth, centerAlign);
+        // set scroll left of the slider to center new image
+        scroll.left(this.elSlider, this.calcScrollLeft(prevImage));
       }
     });
 
-    rightControl.addEventListener('click', () => {
+    this.elRightControl.addEventListener('click', () => {
       // if slider hasn't reached end
-      if (slider.scrollLeft != (slider.scrollWidth - slider.offsetWidth)) {
-        // value needed to adjust scrollLeft so image is centered
-        let centerAlign = this.calcCenterAlign(slider.offsetWidth, image.offsetWidth);
+      if (this.elSlider.scrollLeft != (this.elSlider.scrollWidth - this.elSlider.offsetWidth)) {
+        // calculate image number of next image
+        const nextImage = this.nextImageNumber(this.imageNumber);
 
-        // calculate which image is centered in slider as float
-        let imageNumber = this.calcImageNumber(slider.scrollLeft, centerAlign, image.offsetWidth);
-
-        // convert imageNumber to next image
-        imageNumber = this.nextImageNumber(imageNumber);
-
-        // set scroll left of slider to center new image
-        slider.scrollLeft = this.calcScrollLeft(imageNumber, image.offsetWidth, centerAlign);
+        // set scroll left of the slider to center new image
+        scroll.left(this.elSlider, this.calcScrollLeft(nextImage));
       }
     });
-  },
+  }
 
-  prevImageNumber(n) {
-    return (n % 1 == 0) ? n - 1 : Math.floor(n);
-  },
+  prevImageNumber(imageNumber) {
+    return (imageNumber % 1 == 0) ? imageNumber - 1 : Math.floor(imageNumber);
+  }
 
-  nextImageNumber(n) {
-    return (n % 1 == 0) ? n + 1 : Math.ceil(n);
-  },
+  nextImageNumber(imageNumber) {
+    return (imageNumber % 1 == 0) ? imageNumber + 1 : Math.ceil(imageNumber);
+  }
 
-  calcScrollLeft(n, imageWidth, centerAlign) {
-    return (n * imageWidth) - centerAlign;
-  },
+  calcScrollLeft(imageNumber) {
+    return (imageNumber * this.elImage.offsetWidth) - this.centerAdjust;
+  }
 
-  calcCenterAlign(sliderWidth, imageWidth) {
-    return (sliderWidth - imageWidth) / 2;
-  },
+  async animate(start, end) {
+    const distance = end - start;
+    const delta = Math.floor(distance / this.frames);
+    const ticker = Math.floor(this.time / this.frames);
+    let currentFrame = 0;
 
-  calcImageNumber(sliderScrollLeft, centerAlign, imageWidth) {
-    return (sliderScrollLeft + centerAlign) / imageWidth;
-  },
-};
+    console.log(this.elSlider.scrollLeft + distance);
+
+    let myTimer = setInterval(() => {
+      //make sure the end of the animation has not been reached
+      if (currentFrame < this.frames) {
+        this.elSlider.scrollLeft += delta;
+      } else {
+        // the end of the animation has been reached so stop the interval
+        console.log(this.elSlider.scrollLeft);
+        clearInterval(myTimer);
+      }
+
+      currentFrame++;
+    }, ticker);
+  }
+}
+
+module.exports = new ImageSlider();
