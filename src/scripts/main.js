@@ -5,6 +5,10 @@ const lscache = require('lscache');
 document.addEventListener('DOMContentLoaded', async () => {
   AOS.init();
   Nav.init();
+  if (document.querySelector('.date')) {
+    document.querySelector('.date').textContent = (new Date()).getFullYear();
+  }
+
   if (document.querySelector('.image-slider')) {
     const ImageSlider = require('./ImageSlider.js');
     ImageSlider.init();

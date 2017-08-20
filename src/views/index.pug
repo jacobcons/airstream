@@ -12,10 +12,21 @@ block vars
 
 block content
   section.section
-    .cross-fader
-      img.cross-fader__image(src="images/airstream_summer_wedding.jpg")
-      img.cross-fader__image(src="images/airstream_wedding_fireworks.jpg")
-      img.cross-fader__image(src="images/vintage_airstream_photo_booth.jpg")
+    +cross-fader(
+    [
+      {
+        src: "images/airstream_summer_wedding.jpg",
+        alt: ""
+      },
+      {
+        src: "images/airstream_wedding_fireworks.jpg",
+        alt: ""
+      },
+      {
+        src: "images/vintage_airstream_photo_booth.jpg",
+        alt: ""
+      }
+    ])
 
   section.section
     +3-col-boxes([

@@ -16,3 +16,16 @@ mixin image-slider(images)
         img.image-slider__image(src= image.src alt= image.alt)
     .image-slider__left-control
     .image-slider__right-control
+
+mixin cross-fader(images)
+  .cross-fader
+    for image in images
+      img.cross-fader__image(src= image.src alt= image.alt)
+
+mixin horizontal-list(items)
+  ul.horizontal-list
+    for item in items
+      li.horizontal-list__item= item
+
+mixin contact-btn()
+  a.btn.btn--light(href="contact.html") Contact us
