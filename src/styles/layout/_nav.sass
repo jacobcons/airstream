@@ -23,9 +23,9 @@
   font-size: 0.8em
 
 @include breakpoint (medium down)
-  .nav__item--has-sub.is-active > .sub-nav
+  .nav__item--is-active > .sub-nav
     display: block
-  .nav__link--has-sub.permenant-underline:before
+  .nav__link--underline:before
     transform: scaleX(1)
 
 @include breakpoint(menu-collapse)

@@ -9,6 +9,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.querySelector('.date').textContent = (new Date()).getFullYear();
   }
 
+  if (document.querySelector('.copy-link')) {
+    const CopyLink = require('./CopyLink.js');
+    CopyLink.init();
+  }
+
   if (document.querySelector('.image-slider')) {
     const ImageSlider = require('./ImageSlider.js');
     ImageSlider.init();

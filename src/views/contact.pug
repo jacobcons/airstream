@@ -1,0 +1,21 @@
+extends layouts/main.pug
+include includes/mixins.pug
+
+block content
+  section.section
+    h1.title.title--underline Contact
+    .text-wrapper
+        p Airstream studio is based in Brighton, East Sussex. We generally work within one hours travel from Brighton but are happy to speak with you about longer distance events.
+        p.copy-link info@airstreamstudio.co.uk
+    //+contact-btn()
+
+  section.section.section--padding-l
+    .row
+      .column.large-3.medium-6.small-12
+        img.badge(src="images/hitched.png" alt="hitched")
+      .column.large-3.medium-6.small-12
+        img(src="images/mr&mrs.png" alt="hitched")
+      .column.large-3.medium-6.small-12
+        img.badge(src="images/belles.png" alt="hitched")
+      .column.large-3.medium-6.small-12
+        img.badge(src="images/headliner.png" alt="hitched")

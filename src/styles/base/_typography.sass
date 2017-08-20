@@ -35,12 +35,53 @@
   margin: 1rem 0
   &:after
     $width: 34%
-
     content: ""
     display: block
     width: $width
-    border-bottom: 1px solid #000
+    border-bottom: 1px solid $white
     position: absolute
     left: 50%
     top: 100%
     margin-left: -($width / 2)
+
+.copy-link
+  color: $portage
+  cursor: pointer
+  display: inline-block
+  position: relative
+  &:hover
+    text-decoration: underline
+  &:after, &:before
+    transition: opacity 0.4s
+    opacity: 0
+  &:after
+    $width: 80px
+    content: 'Copied'
+    color: $white
+    background-color: $portage
+    width: $width
+    height: 40px
+    position: absolute
+    left: 50%
+    top: 100%
+    margin-left: -($width / 2)
+  &:before
+    $width: 20px
+    $height: $width / 2
+    content: ''
+    border-left: ($width / 2) solid transparent
+    border-right: ($width / 2) solid transparent
+    border-bottom: ($width / 2) solid $portage
+    font-size: 0
+    line-height: 0
+    width: 0
+    height: 0
+    z-index: 2
+    position: absolute
+    left: 50%
+    top: calc(100% - #{$height})
+    margin-left: -($width / 2)
+
+.copy-link--copied
+  &:after, &:before
+    opacity: 1

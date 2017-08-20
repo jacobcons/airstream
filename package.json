@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "aos": "^2.2.0",
+    "clipboard": "^1.7.1",
     "foundation-sites": "^6.4.1",
     "lscache": "^1.1.0",
     "scroll": "^2.0.0"

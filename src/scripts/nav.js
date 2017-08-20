@@ -7,7 +7,7 @@ class Nav {
   toggleHamburgerMenu() {
     // click hamburger menu -> toggles primary-nav (small screens)
     this.elHamburgerMenu.addEventListener('click', () => {
-      this.elHamburgerMenu.classList.toggle('is-active');
+      this.elHamburgerMenu.classList.toggle('hamburger-menu--is-active');
     });
   }
 
@@ -15,8 +15,8 @@ class Nav {
     // click nav item with sub nav -> toggles sub-nav and underline (small screens)
     this.hasSubItem.forEach(item => {
       item.addEventListener('click', () => {
-        item.classList.toggle('is-active');
-        item.querySelector('.nav__link--has-sub').classList.toggle('permenant-underline');
+        item.classList.toggle('nav__item--is-active');
+        item.querySelector('.nav__link').classList.toggle('nav__link--underline');
       });
     });
   }
