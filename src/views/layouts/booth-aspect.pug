@@ -1,19 +1,12 @@
 extends main.pug
-
-mixin image-slider__image(src, alt)
-  img.image-slider__image(src= src alt= alt)
+include ../includes/mixins.pug
 
 block content
   section.section
-    .image-slider
-      .image-slider__scroll
-        for image in images
-          +image-slider__image(image.src, image.alt)
-      .image-slider__left-control
-      .image-slider__right-control
+    +image-slider(images)
 
-  section.section.section--secondary.layout-centered
+  section.section
     h1.title.title--underline #{heading}
     .text-wrapper
         p #{text}
-    a.btn.btn--light Contact us
+    a.btn.btn--light(href="contact.html") Contact us

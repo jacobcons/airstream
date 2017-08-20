@@ -1,0 +1,18 @@
+mixin 3-col-boxes(boxes)
+  .row
+    for box in boxes
+      .column.large-4.medium-6.small-12
+        .box
+          h2.box__title= box.title
+          img.box__image(src= box.src alt= box.alt)
+          p.box__text= box.text
+          if box.link
+            a.arrow-link(href= box.link) Find out more
+
+mixin image-slider(images)
+  .image-slider
+    .image-slider__scroll
+      for image in images
+        img.image-slider__image(src= image.src alt= image.alt)
+    .image-slider__left-control
+    .image-slider__right-control

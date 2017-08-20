@@ -7,10 +7,13 @@ $total: $height + $border
   @include breakpoint(medium down)
     padding: calculate-rem(60px) 0 0
 
+.primary-nav__section
+  display: flex
+  flex: 1 1 0px
+
 .primary-nav__list
   position: relative
   display: flex
-  justify-content: space-between
   align-items: center
   height: calculate-rem($height)
   border-bottom: $border solid $black

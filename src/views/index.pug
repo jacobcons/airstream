@@ -1,16 +1,9 @@
 extends layouts/main.pug
-
-mixin feature-box(title, src, alt, text, link)
-  .column.large-4.medium-6.small-12
-    .box
-      h2.box__title= title
-      img.box__image(src= src alt= alt)
-      p.box__text= text
-      a.arrow-link(href= link) Find out more
+include includes/mixins.pug
 
 mixin stars()
   - for (i = 0; i < 5; i++) {
-    span ★
+      span ★
   - }
 
 block vars
@@ -24,13 +17,32 @@ block content
       img.cross-fader__image(src="images/airstream_wedding_fireworks.jpg")
       img.cross-fader__image(src="images/vintage_airstream_photo_booth.jpg")
 
-  section.section.layout-centered
-    .row
-      +feature-box("Exterior", "images/vintage_airstream_wedding.jpg", "", "Sed maximus, ipsum rhoncus fermentumdignissim, sapien ligula rhoncus mi, quisrutrum quam eros eget massa. Duis lobortis, nunc non tincidunt vehicula, urna quam finibus velit", "exterior.html")
-      +feature-box("Photo booth", "images/airstream_photo_booth.jpg", "", "Donec blandit facilisis dignissim. Aliquam mattis metus luctus nibh sodales, et pulvinar neque dictum. Nullam feugiat pharetra quam sit amet ultricies", "photo-booth.html")
-      +feature-box("Interior", "images/photo_booth_camera.jpg", "", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi venenatis hendrerit turpis, a egestas ex. Fusce rhoncus diam neque, eu venenatis libero blandit et. Quisque", "interior.html")
+  section.section
+    +3-col-boxes([
+      {
+        title: "Exterior",
+        src: "images/vintage_airstream_wedding.jpg",
+        alt: "",
+        text: "Sed maximus, ipsum rhoncus fermentumdignissim, sapien ligula rhoncus mi, quisrutrum quam eros eget massa. Duis lobortis, nunc non tincidunt vehicula, urna quam finibus velit",
+        link: "exterior.html"
+      },
+      {
+        title: "Photo booth",
+        src: "images/airstream_photo_booth.jpg",
+        alt: "",
+        text: "Donec blandit facilisis dignissim. Aliquam mattis metus luctus nibh sodales, et pulvinar neque dictum. Nullam feugiat pharetra quam sit amet ultricies",
+        link: "photo-booth.html"
+      },
+      {
+        title: "Interior",
+        src: "images/photo_booth_camera.jpg",
+        alt: "",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi venenatis hendrerit turpis, a egestas ex. Fusce rhoncus diam neque, eu venenatis libero blandit et. Quisque",
+        link: "interior.html"
+      }
+    ])
 
-  section.section.layout-centered
+  section.section
     .loader
     .stars
       .stars__top(data-aos="fill-stars" data-aos-duration="600" data-aos-offset="300")

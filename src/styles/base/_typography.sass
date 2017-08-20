@@ -18,12 +18,15 @@
     background-color: $black
 
 .title
+  $spacing: 0.5em
+
   text-align: center
   font-family: marketDeco
   font-weight: normal
-  letter-spacing: 0.8em
+  letter-spacing: $spacing
+  text-indent: $spacing
   @include breakpoint(small down)
-    @include font-size(22px)
+    @include font-size(26px)
 
 .title--underline
   display: inline-block
@@ -31,11 +34,13 @@
   padding: 2rem 0
   margin: 1rem 0
   &:after
+    $width: 34%
+
     content: ""
     display: block
-    width: 34%
+    width: $width
     border-bottom: 1px solid #000
     position: absolute
     left: 50%
     top: 100%
-    margin-left: -18%
+    margin-left: -($width / 2)

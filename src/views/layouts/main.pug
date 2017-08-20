@@ -14,37 +14,40 @@ html(lang="en")
             .hamburger-menu
               span.hamburger-menu__line
             ul.primary-nav__list
-              li.nav__item.primary-nav__item
-                a.nav__link.primary-nav__link(href="index.html") Home
-              li.nav__item.nav__item--has-sub.primary-nav__item
-                a.nav__link.nav__link--has-sub.primary-nav__link(href="javascript:void(0)") Airstream Photo Booth
-                ul.sub-nav
-                  li.nav__item.sub-nav__item
-                    a.nav__link.sub-nav__link(href="interior.html") Interior
-                  li.nav__item.sub-nav__item
-                    a.nav__link.sub-nav__link(href="photo-booth.html") Photo Booth
-                  li.nav__item.sub-nav__item
-                    a.nav__link.sub-nav__link(href="exterior.html") Exterior
-                  li.nav__item.sub-nav__item
-                    a.nav__link.sub-nav__link(href="guest-books.html") Guest Books
-                  li.nav__item.sub-nav__item
-                    a.nav__link.sub-nav__link(href="probs-&-features.html") Props & Features
-                  li.nav__item.sub-nav__item
-                    a.nav__link.sub-nav__link(href="events.html") Events
-              li.nav__item.primary-nav__item
-                a(href="index.html")
-                  img.primary-nav__logo(src="images/airstream_studio_logo.png")
-              li.nav__item.primary-nav__item
-                a.nav__link.primary-nav__link(href="prices.html") Prices
-              li.nav__item.primary-nav__item
-                a.nav__link.primary-nav__link(href="social-media.html") Social Media
-              li.nav__item.primary-nav__item
-                a.nav__link.primary-nav__link(href="contact.html") Contact
+              .primary-nav__section.align-spaced
+                li.nav__item.primary-nav__item
+                  a.nav__link.primary-nav__link(href="index.html") Home
+                li.nav__item.nav__item--has-sub.primary-nav__item
+                  a.nav__link.nav__link--has-sub.primary-nav__link(href="javascript:void(0)") Airstream Photo Booth
+                  ul.sub-nav
+                    li.nav__item.sub-nav__item
+                      a.nav__link.sub-nav__link(href="interior.html") Interior
+                    li.nav__item.sub-nav__item
+                      a.nav__link.sub-nav__link(href="photo-booth.html") Photo Booth
+                    li.nav__item.sub-nav__item
+                      a.nav__link.sub-nav__link(href="exterior.html") Exterior
+                    li.nav__item.sub-nav__item
+                      a.nav__link.sub-nav__link(href="guest-books.html") Guest Books
+                    li.nav__item.sub-nav__item
+                      a.nav__link.sub-nav__link(href="probs-&-features.html") Props & Features
+                    li.nav__item.sub-nav__item
+                      a.nav__link.sub-nav__link(href="events.html") Events
+              .primary-nav__section.align-center
+                li.nav__item.primary-nav__item
+                  a(href="index.html")
+                    img.primary-nav__logo(src="images/airstream_studio_logo.png")
+              .primary-nav__section.align-spaced
+                li.nav__item.primary-nav__item
+                  a.nav__link.primary-nav__link(href="prices.html") Prices
+                li.nav__item.primary-nav__item
+                  a.nav__link.primary-nav__link(href="social-media.html") Social Media
+                li.nav__item.primary-nav__item
+                  a.nav__link.primary-nav__link(href="contact.html") Contact
 
       block content
 
       block footer
-        footer.footer.layout-centered
+        footer.footer
           .row
             .medium-4.small-12
               nav.nav.list-nav
