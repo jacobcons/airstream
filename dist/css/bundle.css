@@ -1175,7 +1175,7 @@ img:not([src]) {
       font-size: 15px;
       font-size: 0.9375rem; } }
   .arrow-link:after {
-    content: "\25B6";
+    content: "\25B6 \FE0E";
     position: relative;
     left: 2px;
     top: -2px;

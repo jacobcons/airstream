@@ -25,7 +25,7 @@ const paths = {
   pages: './src/views/*.pug',
   views: './src/views/**',
   images: './src/images/**',
-  fonts: './src/fonts',
+  fonts: './src/fonts/**',
 };
 
 gulp.task('js', (done) => {
@@ -76,7 +76,7 @@ gulp.task('images', () => {
 });
 
 gulp.task('fonts', () => {
-  return gulp.src(paths.fonts)
+  return gulp.src(paths.fonts, { base: './src' })
     .pipe(gulp.dest('./dist'))
 });
 
