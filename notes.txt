@@ -1,6 +1,2 @@
-iphone:
-image slider webkit scroll bar
-
-contact form modal
-
-fetch data to recreate facebook embed
+-contact form modal
+-fetch data to recreate facebook embed

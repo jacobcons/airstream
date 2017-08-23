@@ -30,6 +30,26 @@ const paths = {
 
 gulp.task('js', (done) => {
   return browserify(paths.mainJs)
+    .bundle()
+    .pipe(source(paths.mainJs))
+    .pipe(buffer())
+    .pipe(flatten())
+    .pipe(gulp.dest('./dist/js'))
+    .pipe(livereload());
+});
+
+gulp.task('sass', () => {
+  return gulp.src(paths.mainSass)
+    .pipe(sass({ includePaths: './node_modules/foundation-sites/scss' }).on('error', sass.logError))
+    .pipe(rename('bundle.css'))
+    .pipe(gulp.dest('./dist/css'))
+    .pipe(livereload());
+});
+
+gulp.task('js-prod', (done) => {
+  return browserify({
+      entries: ['./node_modules/babel-polyfill', './node_modules/whatwg-fetch', './node_modules/nodelist-foreach-polyfill', paths.mainJs]
+    })
     .transform('babelify', {
       presets: ['es2017', 'es2016', 'es2015'],
       global: true,
@@ -39,18 +59,20 @@ gulp.task('js', (done) => {
     .pipe(source(paths.mainJs))
     .pipe(buffer())
     .pipe(flatten())
+    .pipe(babili())
     .pipe(gulp.dest('./dist/js'))
     .pipe(livereload());
 });
 
 
-gulp.task('sass', () => {
+gulp.task('sass-prod', () => {
   return gulp.src(paths.mainSass)
     .pipe(sass({ includePaths: './node_modules/foundation-sites/scss' }).on('error', sass.logError))
     .pipe(prefix({
-      browsers: ['last 15 versions', '> 1%', 'ie 8', 'ie 7'],
+      browsers: ['last 15 versions'],
       cascade: false,
     }))
+    .pipe(cleanCss())
     .pipe(rename('bundle.css'))
     .pipe(gulp.dest('./dist/css'))
     .pipe(livereload());
@@ -89,3 +111,4 @@ gulp.task('watch', () => {
 });
 
 gulp.task('default', ['js', 'sass', 'pug', 'fonts', 'watch']);
+gulp.task('prod', ['js-prod', 'sass-prod', 'pug', 'fonts', 'images']);

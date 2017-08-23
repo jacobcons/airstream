@@ -30,6 +30,8 @@ class ImageSlider {
       threshold: this.elImage.offsetWidth,
     });
 
+    this.elSlider.scrollLeft = this.calcScrollLeft(1);
+
     this.elLeftControl.addEventListener('click', () => {
       // if slider isn't at beginning
       if (this.elSlider.scrollLeft != 0) {

@@ -40,20 +40,20 @@
     "gulp-util": "^3.0.8",
     "gulp-webp": "^2.3.0",
     "imagemin-webp": "^4.0.0",
+    "nodelist-foreach-polyfill": "^1.2.0",
     "pump": "^1.0.2",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^1.1.0",
+    "whatwg-fetch": "^2.0.3"
   },
   "dependencies": {
     "aos": "^2.2.0",
-    "babel-polyfill": "^6.26.0",
     "clipboard": "^1.7.1",
     "foundation-sites": "^6.4.1",
     "lazyload": "^1.8.4",
     "lscache": "^1.1.0",
-    "nodelist-foreach-polyfill": "^1.2.0",
     "scroll": "^2.0.0",
     "vanilla-lazyload": "^8.0.3",
-    "whatwg-fetch": "^2.0.3"
+    "babel-polyfill": "^6.26.0"
   }
 }
