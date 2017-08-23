@@ -1,3 +1,6 @@
+require('babel-polyfill');
+require('whatwg-fetch');
+require('nodelist-foreach-polyfill');
 const Nav = require('./Nav.js');
 const AOS = require('aos');
 const lscache = require('lscache');

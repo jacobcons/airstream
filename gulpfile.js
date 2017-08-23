@@ -31,7 +31,7 @@ const paths = {
 gulp.task('js', (done) => {
   return browserify(paths.mainJs)
     .transform('babelify', {
-      presets: ['es2017', 'es2016'],
+      presets: ['es2017', 'es2016', 'es2015'],
       global: true,
 
     })

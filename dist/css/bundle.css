@@ -1454,6 +1454,9 @@ img:not([src]) {
     right: 0;
     bottom: 0; }
 
+.image-slider__image {
+  padding: 0 1px; }
+
 .loader {
   position: absolute;
   left: 50%;
