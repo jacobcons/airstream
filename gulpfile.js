@@ -25,6 +25,7 @@ const paths = {
   pages: './src/views/*.pug',
   views: './src/views/**',
   images: './src/images/**',
+  fonts: './src/fonts',
 };
 
 gulp.task('js', (done) => {
@@ -74,6 +75,11 @@ gulp.task('images', () => {
     .pipe(livereload());
 });
 
+gulp.task('fonts', () => {
+  return gulp.src(paths.fonts)
+    .pipe(gulp.dest('./dist'))
+});
+
 gulp.task('watch', () => {
   livereload.listen();
   gulp.watch(paths.images, ['images']);
@@ -82,4 +88,4 @@ gulp.task('watch', () => {
   gulp.watch(paths.views, ['pug']);
 });
 
-gulp.task('default', ['js', 'sass', 'pug', 'images', 'watch']);
+gulp.task('default', ['js', 'sass', 'pug', 'fonts', 'watch']);
