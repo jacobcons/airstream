@@ -1108,7 +1108,8 @@ class ImageSlider {
 
   init() {
     const lazy = new LazyLoad({
-      container: this.elSlider
+      container: this.elSlider,
+      threshold: this.elImage.offsetWidth
     });
 
     this.elLeftControl.addEventListener('click', () => {

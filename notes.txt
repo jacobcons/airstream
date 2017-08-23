@@ -1,9 +1,6 @@
 iphone:
-unicode left arrow -> png
 image slider webkit scroll bar
 
 contact form modal
 
 fetch data to recreate facebook embed
-
-fix image pop in by increasing threashold parameter 

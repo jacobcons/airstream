@@ -36,14 +36,18 @@
   margin: 1rem 0
   &:after
     $width: 34%
+    $max-width: 130px
     content: ""
     display: block
     width: $width
+    max-width: $max-width
     border-bottom: 1px solid $black
     position: absolute
     left: 50%
     top: 100%
-    margin-left: -($width / 2)
+    transform: translateX(-50%)
+  @include breakpoint(small down)
+    padding: 0 0 2rem
 
 .copy-link
   color: $portage

@@ -1207,11 +1207,17 @@ img:not([src]) {
     content: "";
     display: block;
     width: 34%;
+    max-width: 130px;
     border-bottom: 1px solid #000;
     position: absolute;
     left: 50%;
     top: 100%;
-    margin-left: -17%; }
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%); }
+  @media screen and (max-width: 39.9375em) {
+    .title--underline {
+      padding: 0 0 2rem; } }
 
 .copy-link {
   color: #a18fec;
