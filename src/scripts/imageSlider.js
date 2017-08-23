@@ -1,4 +1,5 @@
 const scroll = require('scroll');
+const LazyLoad = require('vanilla-lazyload');
 
 class ImageSlider {
   constructor(frames = 60, time = 1000) {
@@ -18,11 +19,16 @@ class ImageSlider {
   // returns image number being viewed as a float e.g. if 2nd image is centered it will return 2
   get imageNumber() {
     let imageNumber = (this.elSlider.scrollLeft + this.centerAdjust) / this.elImage.offsetWidth;
+
     // if image being viewed is nearly centered assume that the image number is centered
     return (Math.abs(imageNumber - Math.round(imageNumber)) < 0.05) ? Math.round(imageNumber) : imageNumber;
   }
 
   init() {
+    const lazy = new LazyLoad({
+      container: this.elSlider,
+    });
+
     this.elLeftControl.addEventListener('click', () => {
       // if slider isn't at beginning
       if (this.elSlider.scrollLeft != 0) {

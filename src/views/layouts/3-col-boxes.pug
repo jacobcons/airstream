@@ -1,0 +1,8 @@
+extends main.pug
+include ../includes/mixins.pug
+
+block content
+  section.section
+    h1.title.title--underline #{heading}
+  section.section
+    +3-col-boxes(path, images)

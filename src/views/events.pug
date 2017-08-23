@@ -1,54 +1,54 @@
-extends layouts/main.pug
-include includes/mixins.pug
+extends layouts/3-col-boxes.pug
 
 block vars
   - let title = "Events - Vintage Photo Booths Hire Sussex – Vintage Airstream Rental"
-
-block content
-  section.section
-    h1.title.title--underline Events
-  section.section
-    +3-col-boxes([
+  - let heading = "Events"
+  - let path = "images/events/"
+  -
+    let images = [
       {
         title: "Weddings",
-        src: "images/weddings.jpg",
-        alt: "",
-        text: "Sed maximus, ipsum rhoncus fermentumdignissim, sapien ligula rhoncus mi, quisrutrum quam eros eget massa. Duis lobortis, nunc non tincidunt vehicula, urna quam finibus velit",
+        src: "wedding_photo_booth.jpg",
+        text: "",
       },
       {
         title: "Parties",
-        src: "images/parties.jpg",
-        alt: "",
-        text: "Donec blandit facilisis dignissim. Aliquam mattis metus luctus nibh sodales, et pulvinar neque dictum. Nullam feugiat pharetra quam sit amet ultricies",
+        src: "party_photo_booth_sussex.jpg",
+        text: "",
       },
       {
         title: "Corporate",
-        src: "images/corporate.jpg",
-        alt: "",
-        text: "Our vintage photo booth is a great addition to your conference, party or team event. We offer free branding of your photos with your logo and and event title as part of the service. ",
+        src: "corporate_event_photo_booth.jpg",
+        text: "",
       },
       {
         title: "School prom",
-        src: "images/school_prom.jpg",
-        alt: "",
-        text: "Airstream Studio's retro photo booth is great entertainment for school proms and school balls. The students love the vintage props and the ability to share their photos to social media directly from the airstream.",
+        src: "school_prom_photo_booth.jpg",
+        text: "",
       },
       {
         title: "Christmas",
-        src: "images/christmas.jpg",
-        alt: "",
-        text: "Donec blandit facilisis dignissim. Aliquam mattis metus luctus nibh sodales, et pulvinar neque dictum. Nullam feugiat pharetra quam sit amet ultricies",
+        src: "christmas_photo_booth.jpg",
+        text: "",
       },
       {
         title: "Halloween",
-        src: "images/halloween.jpg",
-        alt: "",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi venenatis hendrerit turpis, a egestas ex. Fusce rhoncus diam neque, eu venenatis libero blandit et. Quisque",
+        src: "spooky_photobooth.jpg",
+        text: "",
+      },
+      {
+        title: "Children's Parties",
+        src: "kids_party_photo_booth.jpg",
+        text: "",
+      },
+      {
+        title: "Film",
+        src: "film_location_hire_sussex.jpg",
+        text: "",
       },
       {
         title: "Charity",
-        src: "images/charity.jpg",
-        alt: "",
-        text: "Sed maximus, ipsum rhoncus fermentumdignissim, sapien ligula rhoncus mi, quisrutrum quam eros eget massa. Duis lobortis, nunc non tincidunt vehicula, urna quam finibus velit",
+        src: "charity_photo_booth.jpg",
+        text: "",
       },
-    ])
+    ]

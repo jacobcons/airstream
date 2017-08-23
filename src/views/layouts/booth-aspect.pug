@@ -3,10 +3,10 @@ include ../includes/mixins.pug
 
 block content
   section.section
-    +image-slider(images)
+    +image-slider(path, images)
 
   section.section
     h1.title.title--underline #{heading}
     .text-wrapper
-        p #{text}
+        p!= text
     +contact-btn()

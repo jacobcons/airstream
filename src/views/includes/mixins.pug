@@ -1,26 +1,31 @@
-mixin 3-col-boxes(boxes)
+mixin 3-col-boxes(path, boxes)
   .row
     for box in boxes
       .column.large-4.medium-6.small-12
         .box
           h2.box__title= box.title
-          img.box__image(src= box.src alt= box.alt)
+          - const alt = box.src.split(".")[0].split("_").join(" ")
+          img.box__image(src= path+box.src alt= alt)
           p.box__text= box.text
           if box.link
             a.arrow-link(href= box.link) Find out more
 
-mixin image-slider(images)
+mixin image-slider(path, images)
   .image-slider
     .image-slider__scroll
       for image in images
-        img.image-slider__image(src= image.src alt= image.alt)
+        .image-slider__image-wrapper
+          - const alt = image.src.split(".")[0].split("_").join(" ")
+          img.image-slider__image(data-original= path+image.src alt= alt)
     .image-slider__left-control
     .image-slider__right-control
 
-mixin cross-fader(images)
+mixin cross-fader(path, images)
+  - images = images.reverse()
   .cross-fader
     for image in images
-      img.cross-fader__image(src= image.src alt= image.alt)
+      - const alt = image.src.split(".")[0].split("_").join(" ")
+      img.cross-fader__image(src= path+image.src alt= alt)
 
 mixin horizontal-list(items)
   ul.horizontal-list

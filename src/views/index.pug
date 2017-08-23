@@ -12,43 +12,73 @@ block vars
 
 block content
   section.section
-    +cross-fader(
+    +cross-fader("images/cross_fader/",
     [
       {
-        src: "images/airstream_summer_wedding.jpg",
-        alt: ""
+        src: "airstream_photo_booth_sussex.jpg",
       },
       {
-        src: "images/airstream_wedding_fireworks.jpg",
-        alt: ""
+        src: "vintage_airstream_photo_booth.jpg",
       },
       {
-        src: "images/vintage_airstream_photo_booth.jpg",
-        alt: ""
+        src: "photo_booth_sussex.jpg",
+      },
+      {
+        src: "may_petite_alt_model.jpg",
+      },
+      {
+        src: "vintage_wedding_photo_booth_sussex.jpg",
+      },
+      {
+        src: "vintage_photo_booth.jpg",
+      },
+      {
+        src: "wedding_vehicle_sussex.jpg",
+      },
+      {
+        src: "luxury_photo_booth.jpg",
+      },
+      {
+        src: "photo_booth_pose.jpg",
+      },
+      {
+        src: "unique_photo_booth_fun.jpg",
+      },
+      {
+        src: "unique_photo_booth_sussex.jpg",
+      },
+      {
+        src: "event_photo_booth.jpg",
+      },
+      {
+        src: "photo_booth_stately_home_wedding.jpg",
+      },
+      {
+        src: "airstream_dawn_photo.jpg",
+      },
+      {
+        src: "dupenny_illustration.jpg",
       }
     ])
 
   section.section
-    +3-col-boxes([
+    +3-col-boxes("images/aspects/", [
       {
         title: "Exterior",
-        src: "images/vintage_airstream_wedding.jpg",
-        alt: "",
-        text: "Sed maximus, ipsum rhoncus fermentumdignissim, sapien ligula rhoncus mi, quisrutrum quam eros eget massa. Duis lobortis, nunc non tincidunt vehicula, urna quam finibus velit",
+        src: "vintage_airstream_photo_booth_hire.jpg",
+        text: "A rare 1949 vintage airstream trailer which has been lovingly restored with a mirror polished exterior. A stunning backdrop to your wedding, party or event.",
         link: "exterior.html"
       },
       {
         title: "Photo booth",
-        src: "images/airstream_photo_booth.jpg",
-        alt: "",
-        text: "Donec blandit facilisis dignissim. Aliquam mattis metus luctus nibh sodales, et pulvinar neque dictum. Nullam feugiat pharetra quam sit amet ultricies",
+        src: "airstream_studio_photo_booth_sussex.jpg",
+        text: "A unique photo booth set inside a vintage airstream. Capture beautiful memories in a vintage inspired photo set, with professional lighting and instant photo printing.",
         link: "photo-booth.html"
       },
       {
         title: "Interior",
-        src: "images/photo_booth_camera.jpg",
-        alt: "",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi venenatis hendrerit turpis, a egestas ex. Fusce rhoncus diam neque, eu venenatis libero blandit et. Quisque",
+        src: "unique_photo_booth_hire_sussex.jpg",
+        text: "A retro 1950’s styled interior with a luxury seating booth, bespoke units and a huge selection of unique and creative props.",
         link: "interior.html"
       }
     ])
@@ -66,7 +96,7 @@ block content
 
 block prepend scripts
   #fb-root
-  script(src='https://connect.facebook.net/en_GB/sdk.js')
+  script(src="https://connect.facebook.net/en_GB/sdk.js")
   script.
     FB.init({
       appId            : '247871935641546',

@@ -5,6 +5,8 @@ class CrossFader {
   }
 
   init() {
+    this.elContainer.style.opacity = 1;
+
     // fade out top image periodically
     setInterval(() => this.elContainer.lastChild.style.opacity = 0, 4000);
 
