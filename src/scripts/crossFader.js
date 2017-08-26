@@ -5,10 +5,14 @@ class CrossFader {
   }
 
   init() {
-    this.elContainer.style.opacity = 1;
+    this.loadImage(this.elImages[this.elImages.length - 1]);
+    this.loadImage(this.elImages[this.elImages.length - 2]);
 
     // fade out top image periodically
-    setInterval(() => this.elContainer.lastChild.style.opacity = 0, 4000);
+    setInterval(() => {
+      this.loadImage(this.elContainer.querySelector(':nth-last-child(2)'));
+      this.elContainer.lastChild.style.opacity = 0;
+    }, 4000);
 
     // event listener for when image fades out
     this.elImages.forEach(image => {
@@ -20,6 +24,13 @@ class CrossFader {
         image.style.opacity = 1;
       });
     });
+  }
+
+  loadImage(image) {
+    if (image.getAttribute('data-src')) {
+      image.setAttribute('src', image.getAttribute('data-src'));
+      image.addEventListener('load', () => image.removeAttribute('data-src'));
+    }
   }
 }
 

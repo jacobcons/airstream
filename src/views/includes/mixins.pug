@@ -25,7 +25,7 @@ mixin cross-fader(path, images)
   .cross-fader
     for image in images
       - const alt = image.src.split(".")[0].split("_").join(" ")
-      img.cross-fader__image(src= path+image.src alt= alt)
+      img.cross-fader__image(data-src= path+image.src alt= alt)
 
 mixin horizontal-list(items)
   ul.horizontal-list
