@@ -5,12 +5,13 @@ class CrossFader {
   }
 
   init() {
+    // load top two images
     this.loadImage(this.elImages[this.elImages.length - 1]);
     this.loadImage(this.elImages[this.elImages.length - 2]);
 
-    // fade out top image periodically
+    // ensures that top two images will always be loaded at the top
     setInterval(() => {
-      this.loadImage(this.elContainer.querySelector(':nth-last-child(2)'));
+      this.loadImage(this.elContainer.querySelector(':nth-last-child(3)'));
       this.elContainer.lastChild.style.opacity = 0;
     }, 4000);
 
