@@ -13,6 +13,9 @@ mixin service(title, from, price)
 block vars
   - let title = "Pricing - Vintage Photo Booths Hire Sussex – Vintage Airstream Rental"
 
+block prepend head-scripts
+  script(src="https://www.google.com/recaptcha/api.js")
+
 block content
   section.section
     h2.title
@@ -56,7 +59,7 @@ block content
           p.box__text -A 50% deposit to secure your date with the balance due 30 days before your event
       .column.medium-6.small-12
         .box.box--right
-          h2.box__title.box__title--size-l All day/bespoke
+          h2.box__title.box__title--size-l Information
           p.box__text -Travel, set-up and pack away time is included within the hire cost
           p.box__text -To enable socila media sharing there must be a stable wi-fi or 4G connection. If this is not available uploads will be queued until a signal is available
           p.box__text -For early set up, the airstream will be in place but not open as a photo booth until the agreed hire time

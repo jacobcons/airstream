@@ -41,6 +41,10 @@ gulp.task('js', (done) => {
 gulp.task('sass', () => {
   return gulp.src(paths.mainSass)
     .pipe(sass({ includePaths: './node_modules/foundation-sites/scss' }).on('error', sass.logError))
+    .pipe(prefix({
+      browsers: ['last 15 versions'],
+      cascade: false,
+    }))
     .pipe(rename('bundle.css'))
     .pipe(gulp.dest('./dist/css'))
     .pipe(livereload());

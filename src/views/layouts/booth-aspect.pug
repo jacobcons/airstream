@@ -1,6 +1,9 @@
 extends main.pug
 include ../includes/mixins.pug
 
+block prepend head-scripts
+  script(src="https://www.google.com/recaptcha/api.js")
+
 block content
   section.section
     +image-slider(path, images)

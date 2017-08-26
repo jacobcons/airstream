@@ -9,6 +9,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.querySelector('.date').textContent = (new Date()).getFullYear();
   }
 
+  if (document.querySelector('.input-field')) {
+    const InputField = require('./InputField.js');
+    InputField.init();
+  }
+
+  if (document.querySelector('.modal')) {
+    const Modal = require('./Modal.js');
+    Modal.init();
+  }
+
+  if (document.querySelector('.contact-form')) {
+    const ContactForm = require('./ContactForm.js');
+    ContactForm.init();
+  }
+
   if (document.querySelector('.copy-link')) {
     const CopyLink = require('./CopyLink.js');
     CopyLink.init();

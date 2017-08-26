@@ -7,8 +7,8 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title #{title}
     link(rel="stylesheet" href="css/bundle.css")
+    block head-scripts
   body(class=bodyClasses)
-    block facebook
     .wrapper
       block header
           nav.nav.primary-nav.clearfix
@@ -102,5 +102,5 @@ html(lang="en")
                 a.social-icon(href="https://plus.google.com/106091941708335708484" target="_blank" rel="noopener")
                   include ../includes/icons/g+.svg
 
-    block scripts
+    block footer-scripts
       script(src="js/main.js")
