@@ -1,4 +1,3 @@
--link badges
 -google analytics
 -events text & titles
 -srcset images
