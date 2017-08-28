@@ -23,6 +23,7 @@ const paths = {
   mainSass: './src/styles/main.sass',
   sass: './src/styles/**',
   pages: './src/views/*.pug',
+  php: ['./src/php/**', './src/*.php'],
   views: './src/views/**',
   images: './src/images/**',
   fonts: './src/fonts/**',
@@ -89,6 +90,11 @@ gulp.task('pug', () => {
     .pipe(livereload());
 });
 
+gulp.task('php', () => {
+  return gulp.src(paths.php, { base: './src' })
+    .pipe(gulp.dest('./dist'))
+});
+
 gulp.task('images', () => {
   return gulp.src(paths.images)
     .pipe(imagemin([
@@ -112,7 +118,8 @@ gulp.task('watch', () => {
   gulp.watch(paths.sass, ['sass']);
   gulp.watch(paths.js, ['js']);
   gulp.watch(paths.views, ['pug']);
+  gulp.watch(paths.php, ['php']);
 });
 
-gulp.task('default', ['js', 'sass', 'pug', 'fonts', 'watch']);
-gulp.task('prod', ['js-prod', 'sass-prod', 'pug', 'fonts', 'images']);
+gulp.task('default', ['js', 'sass', 'pug', 'php', 'fonts', 'watch']);
+gulp.task('prod', ['js-prod', 'sass-prod', 'pug', 'php', 'fonts', 'images']);

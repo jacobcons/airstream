@@ -1,13 +1,19 @@
 extends layouts/main.pug
 include includes/mixins.pug
 
+block vars
+  - let title = "Contact - Vintage Photo Booths Hire Sussex – Vintage Airstream Rental"
+
+block prepend head-scripts
+  script(src="https://www.google.com/recaptcha/api.js")
+
 block content
   section.section
     h1.title.title--underline Contact
     .text-wrapper
         p Airstream Studio is based in Brighton, East Sussex. We generally work within one hours travel from Brighton but are happy to speak with you about longer distance events.
         p.copy-link info@airstreamstudio.co.uk
-    //+contact-btn()
+    +contact-btn()
 
   section.section.section--padding-l
     .row.align-middle

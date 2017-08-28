@@ -1,2 +1,6 @@
 -contact form modal
+-link badges
+-google analytics
+-events text & titles
+-srcset images
 -fetch data to recreate facebook embed

@@ -2,8 +2,8 @@ const autosize = require('autosize');
 
 class InputField {
   constructor() {
-    this.elInputs = document.querySelectorAll('.input-field__input');
-    this.elTextAreas = document.querySelectorAll('.input-field__input--textarea');
+    this.elInputs = document.querySelectorAll('.input-field__text');
+    this.elTextAreas = document.querySelectorAll('.input-field__text--textarea');
   }
 
   init() {

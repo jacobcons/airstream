@@ -33,36 +33,37 @@ mixin horizontal-list(items)
       li.horizontal-list__item= item
 
 mixin contact-form(modal)
-  form.contact-form(method="post" action="mailer.php")
+  form.contact-form(method="post" action="php/mailer.php")
     h2.contact-form__title Get in touch
     .input-field
-      input.input-field__input.input-field__input--required(type="text" name="name")
+      input.input-field__text.input-field__text--required(type="text" name="name")
       label.input-field__label.input-field__label--text-entry(for="name") Name
     .input-field
-      input.input-field__input.input-field__input--required(type="text" name="email")
+      input.input-field__text.input-field__text--required(type="text" name="email")
       label.input-field__label.input-field__label--text-entry(for="email") Email
     .input-field
-      input.input-field__input(type="text" name="date")
+      input.input-field__text(type="text" name="date")
       label.input-field__label.input-field__label--text-entry(for="date") Event Date
     .input-field
-      input.input-field__input(type="text" name="location")
+      input.input-field__text(type="text" name="location")
       label.input-field__label.input-field__label--text-entry(for="location") Event Location
     .input-field
-      textarea.input-field__input.input-field__input--required.input-field__input--textarea(name="message")
+      textarea.input-field__text.input-field__text--required.input-field__text--textarea(name="message")
       label.input-field__label.input-field__label--text-entry(for="message") Message
     .input-field
       label.input-field__label(for="hearAbout") Where did you hear about us?
       .input-field__select-container
         select.input-field__select(name="hearAbout")
-          option(value="google") Google
-          option(value="hitched") Hitched
-          option(value="mrAndMrs") Mr & Mrs Unique
-          option(value="loveSussexWeddings") Love Sussex Weddings
-          option(value="flyer") Flyer
-          option(value="other") Other
+          option(value="Google") Google
+          option(value="Hitched") Hitched
+          option(value="Mr & Mrs Unique") Mr & Mrs Unique
+          option(value="Love Sussex Weddings") Love Sussex Weddings
+          option(value="Flyer") Flyer
+          option(value="Other") Other
     .input-field
       .g-recaptcha(data-sitekey="6LeOpycUAAAAAOZltUZYbK0S3UxwiTaK_kHx_tiv")
-    a.btn.btn--light.btn--full-width Send
+    button.btn.btn--light.btn--full-width.js-btn-send(type="submit") Send
+    p.contact-form__status
 
     if modal
       .modal__close &times;

@@ -791,19 +791,71 @@ module.exports = {
 },{"rafl":5}],7:[function(require,module,exports){
 var _extends=Object.assign||function(a){for(var b=1;b<arguments.length;b++){var c=arguments[b];for(var d in c)Object.prototype.hasOwnProperty.call(c,d)&&(a[d]=c[d])}return a},_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(a){return typeof a}:function(a){return a&&"function"==typeof Symbol&&a.constructor===Symbol&&a!==Symbol.prototype?"symbol":typeof a};!function(a,b){"object"===("undefined"==typeof exports?"undefined":_typeof(exports))&&"undefined"!=typeof module?module.exports=b():"function"==typeof define&&define.amd?define(b):a.LazyLoad=b()}(this,function(){"use strict";var a={elements_selector:"img",container:window,threshold:300,throttle:150,data_src:"original",data_srcset:"originalSet",class_loading:"loading",class_loaded:"loaded",class_error:"error",class_initial:"initial",skip_invisible:!0,callback_load:null,callback_error:null,callback_set:null,callback_processed:null},b=!("onscroll"in window)||/glebot/.test(navigator.userAgent),c=function(a,b){a&&a(b)},d=function(a){return a.getBoundingClientRect().top+window.pageYOffset-a.ownerDocument.documentElement.clientTop},e=function(a,b,c){return(b===window?window.innerHeight+window.pageYOffset:d(b)+b.offsetHeight)<=d(a)-c},f=function(a){return a.getBoundingClientRect().left+window.pageXOffset-a.ownerDocument.documentElement.clientLeft},g=function(a,b,c){var d=window.innerWidth;return(b===window?d+window.pageXOffset:f(b)+d)<=f(a)-c},h=function(a,b,c){return(b===window?window.pageYOffset:d(b))>=d(a)+c+a.offsetHeight},i=function(a,b,c){return(b===window?window.pageXOffset:f(b))>=f(a)+c+a.offsetWidth},j=function(a,b,c){return!(e(a,b,c)||h(a,b,c)||g(a,b,c)||i(a,b,c))},k=function(a,b){var c=new a(b),d=new CustomEvent("LazyLoad::Initialized",{detail:{instance:c}});window.dispatchEvent(d)},l=function(a,b){var c=a.parentElement;if("PICTURE"===c.tagName)for(var d=0;d<c.children.length;d++){var e=c.children[d];if("SOURCE"===e.tagName){var f=e.dataset[b];f&&e.setAttribute("srcset",f)}}},m=function(a,b,c){var d=a.tagName,e=a.dataset[c];if("IMG"===d){l(a,b);var f=a.dataset[b];return f&&a.setAttribute("srcset",f),void(e&&a.setAttribute("src",e))}if("IFRAME"===d)return void(e&&a.setAttribute("src",e));e&&(a.style.backgroundImage='url("'+e+'")')},n=function(b){this._settings=_extends({},a,b),this._queryOriginNode=this._settings.container===window?document:this._settings.container,this._previousLoopTime=0,this._loopTimeout=null,this._boundHandleScroll=this.handleScroll.bind(this),this._isFirstLoop=!0,window.addEventListener("resize",this._boundHandleScroll),this.update()};n.prototype={_reveal:function(a){var b=this._settings,d=function d(){b&&(a.removeEventListener("load",e),a.removeEventListener("error",d),a.classList.remove(b.class_loading),a.classList.add(b.class_error),c(b.callback_error,a))},e=function e(){b&&(a.classList.remove(b.class_loading),a.classList.add(b.class_loaded),a.removeEventListener("load",e),a.removeEventListener("error",d),c(b.callback_load,a))};"IMG"!==a.tagName&&"IFRAME"!==a.tagName||(a.addEventListener("load",e),a.addEventListener("error",d),a.classList.add(b.class_loading)),m(a,b.data_srcset,b.data_src),c(b.callback_set,a)},_loopThroughElements:function(){var a=this._settings,d=this._elements,e=d?d.length:0,f=void 0,g=[],h=this._isFirstLoop;for(f=0;f<e;f++){var i=d[f];a.skip_invisible&&null===i.offsetParent||(b||j(i,a.container,a.threshold))&&(h&&i.classList.add(a.class_initial),this._reveal(i),g.push(f),i.dataset.wasProcessed=!0)}for(;g.length;)d.splice(g.pop(),1),c(a.callback_processed,d.length);0===e&&this._stopScrollHandler(),h&&(this._isFirstLoop=!1)},_purgeElements:function(){var a=this._elements,b=a.length,c=void 0,d=[];for(c=0;c<b;c++){a[c].dataset.wasProcessed&&d.push(c)}for(;d.length>0;)a.splice(d.pop(),1)},_startScrollHandler:function(){this._isHandlingScroll||(this._isHandlingScroll=!0,this._settings.container.addEventListener("scroll",this._boundHandleScroll))},_stopScrollHandler:function(){this._isHandlingScroll&&(this._isHandlingScroll=!1,this._settings.container.removeEventListener("scroll",this._boundHandleScroll))},handleScroll:function(){var a=this._settings.throttle;if(0!==a){var b=Date.now(),c=a-(b-this._previousLoopTime);c<=0||c>a?(this._loopTimeout&&(clearTimeout(this._loopTimeout),this._loopTimeout=null),this._previousLoopTime=b,this._loopThroughElements()):this._loopTimeout||(this._loopTimeout=setTimeout(function(){this._previousLoopTime=Date.now(),this._loopTimeout=null,this._loopThroughElements()}.bind(this),c))}else this._loopThroughElements()},update:function(){this._elements=Array.prototype.slice.call(this._queryOriginNode.querySelectorAll(this._settings.elements_selector)),this._purgeElements(),this._loopThroughElements(),this._startScrollHandler()},destroy:function(){window.removeEventListener("resize",this._boundHandleScroll),this._loopTimeout&&(clearTimeout(this._loopTimeout),this._loopTimeout=null),this._stopScrollHandler(),this._elements=null,this._queryOriginNode=null,this._settings=null}};var o=window.lazyLoadOptions;return o&&function(a,b){var c=b.length;if(c)for(var d=0;d<c;d++)k(a,b[d]);else k(a,b)}(n,o),n});
 },{}],8:[function(require,module,exports){
+const Fetch = require('./Fetch.js');
+
 class ContactForm {
   constructor() {
+    this.elForm = document.querySelector('.contact-form');
+    this.elSendBtn = this.elForm.querySelector('.js-btn-send');
+    this.elFields = this.elForm.querySelectorAll('.input-field');
+    this.elInputs = this.elForm.querySelectorAll('.input-field__text');
+    this.elLabels = this.elForm.querySelectorAll('.input-field__label');
+    this.elStatus = this.elForm.querySelector('.contact-form__status');
+    this.elRecaptcha = this.elForm.querySelector('.g-recaptcha');
+  }
 
+  errorLabel(err) {
+    return `<div class="contact-form__error">${err}</div>`;
   }
 
   init() {
+    this.elSendBtn.addEventListener('click', async (e) => {
+      // post request to submit form data to be emailed
+      e.preventDefault();
+      const res = await Fetch.post(this.elForm.getAttribute('action'), new FormData(this.elForm));
+      const body = await res.json();
 
+      // remove errors from all inputs
+      if (document.querySelectorAll('.contact-form__error')) {
+        document.querySelectorAll('.contact-form__error').forEach(err => err.remove());
+      }
+
+      this.elInputs.forEach(input => input.classList.remove('input-field__text--error'));
+      this.elLabels.forEach(label => label.classList.remove('input-field__label--error'));
+      this.elStatus.classList.remove('contact-form__status--error');
+      grecaptcha.reset();
+
+      if (body.errors) {
+        // add errors to inputs that need it
+        Object.keys(body.errors).forEach((key, index) => {
+          const input = this.elForm.querySelector(`.input-field__text[name=${key}]`);
+          const label = input.nextElementSibling;
+          input.classList.add('input-field__text--error');
+          label.classList.add('input-field__label--error');
+          label.insertAdjacentHTML('afterend', this.errorLabel(body.errors[key]));
+        });
+      }
+
+      if (body.recaptcha) {
+        this.elRecaptcha.insertAdjacentHTML('afterend', this.errorLabel(body.recaptcha));
+      }
+
+      if (res.status === 400 || res.status === 500) {
+        this.elStatus.classList.add('contact-form__status--error');
+      }
+
+      // display results of post request
+      this.elStatus.textContent = body.status;
+
+      // scroll to bottom of form
+      this.elForm.scrollTop = this.elForm.offsetHeight;
+    });
   }
 }
 
 module.exports = new ContactForm();
 
-},{}],9:[function(require,module,exports){
+},{"./Fetch.js":13}],9:[function(require,module,exports){
 class CopyLink {
   constructor() {
     this.elLinks = document.querySelectorAll('.copy-link');
@@ -965,6 +1017,13 @@ class Fetch {
   async get(url) {
     return await(await fetch(url)).json();
   }
+
+  async post(url, data) {
+    return await fetch(url, {
+      method: 'POST',
+      body: data,
+    });
+  }
 }
 
 module.exports = new Fetch();
@@ -1069,8 +1128,8 @@ const autosize = require('autosize');
 
 class InputField {
   constructor() {
-    this.elInputs = document.querySelectorAll('.input-field__input');
-    this.elTextAreas = document.querySelectorAll('.input-field__input--textarea');
+    this.elInputs = document.querySelectorAll('.input-field__text');
+    this.elTextAreas = document.querySelectorAll('.input-field__text--textarea');
   }
 
   init() {
