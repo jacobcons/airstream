@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const FacebookStars = require('./FacebookStars.js');
     const FacebookReviews = require('./FacebookReviews.js');
     let cache = lscache.get('facebook');
+
     if (cache) {
       var { urls, rating } = cache;
       urls = JSON.parse(urls);

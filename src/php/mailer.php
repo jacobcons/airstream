@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $location = trim($_POST['location']);
   $message = trim($_POST['message']);
   $hearAbout = trim($_POST['hearAbout']);
-  $secret = '6LeOpycUAAAAABXwVk93Hkx2udXnZ2n0CHJAkBha';
+  $secret = '6Lcqax0UAAAAAIkdw_NoEUgAvbaNqHQwtfrCzCFi';
 
   $url = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response'].'&remoteip'.$_SERVER['REMOTE_ADDR']);
   $recaptcha = json_decode($url, TRUE);
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     http_response_code(400);
   } else {
     // Set the recipient email address.
-    $recipient = "jacobcons@gmail.com";
+    $recipient = "info@airstreamstudio.co.uk";
 
     // Set the email subject.
     $subject = "Enquiry from $name";

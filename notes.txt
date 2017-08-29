@@ -1,3 +1,2 @@
--google analytics
 -srcset images
 -fetch data to recreate facebook embed
